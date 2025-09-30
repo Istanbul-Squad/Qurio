@@ -1,8 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Qurio" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_variant</item>
+
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/shade_primary</item>
+        <item name="colorSecondaryContainer">@color/orange_variant</item>
+
+        <!-- Surface / Background -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/shade_secondary</item>
+        <item name="android:colorBackground">@color/surface_high</item>
+
     </style>
 
     <style name="Theme.Qurio" parent="Base.Theme.Qurio" />

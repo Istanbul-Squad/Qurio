@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.qurio"
+    namespace = "com.istanbul.qurio"
     compileSdk = 36
 
     defaultConfig {

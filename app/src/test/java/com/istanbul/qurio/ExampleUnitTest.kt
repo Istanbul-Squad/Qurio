@@ -1,4 +1,4 @@
-package com.example.qurio
+package com.istanbul.qurio
 
 import org.junit.Test
 

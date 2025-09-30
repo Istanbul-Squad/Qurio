@@ -13,3 +13,18 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Ignore all dotfiles
+.*
+
+# But keep
+!.gitignore
+!.gitattributes
+!.github/
+
+# Android Studio
+.idea/
+
+# Gradle
+.gradle/
+build/

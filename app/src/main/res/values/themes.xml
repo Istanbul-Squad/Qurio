@@ -21,74 +21,76 @@
 
     <style name="Theme.Qurio" parent="Base.Theme.Qurio" />
 
-    <style name="HeadLine"/>
+    <style name="HeadLine">
+        <item name="android:fontFamily">@font/fredoka_one_regular</item>
+    </style>
+
     <style name="HeadLine.Large">
         <item name="android:textSize">28sp</item>
         <item name="lineHeight">42sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="HeadLine.Medium">
         <item name="android:textSize">24sp</item>
         <item name="lineHeight">36sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="HeadLine.Small">
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">30sp</item>
+    </style>
+
+
+    <style name="Title">
         <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
-    <style name="Title"/>
     <style name="Title.Large">
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">30sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="Title.Medium">
         <item name="android:textSize">18sp</item>
         <item name="lineHeight">28sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="Title.Small">
         <item name="android:textSize">16sp</item>
         <item name="lineHeight">24sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
-    <style name="Body"/>
+    <style name="Body">
+        <item name="android:fontFamily">@font/fredoka_regular</item>
+    </style>
+
     <style name="Body.Large">
         <item name="android:textSize">18sp</item>
         <item name="lineHeight">28sp</item>
-        <item name="android:fontFamily">@font/fredoka_regular</item>
     </style>
 
     <style name="Body.Medium">
         <item name="android:textSize">16sp</item>
         <item name="lineHeight">24sp</item>
-        <item name="android:fontFamily">@font/fredoka_regular</item>
     </style>
 
     <style name="Body.Small">
         <item name="android:textSize">14sp</item>
         <item name="lineHeight">22sp</item>
-        <item name="android:fontFamily">@font/fredoka_regular</item>
     </style>
 
-    <style name="Label"/>
+    <style name="Label">
+        <item name="android:fontFamily">@font/fredoka_one_regular</item>
+    </style>
+
     <style name="Label.Large">
         <item name="android:textSize">16sp</item>
         <item name="lineHeight">24sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="Label.Medium">
         <item name="android:textSize">14sp</item>
         <item name="lineHeight">22sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="Label.Small">

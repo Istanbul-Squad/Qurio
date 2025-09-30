@@ -58,6 +58,53 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/image_coins" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_score_correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chamfered_shape"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="32dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/card_score_incorrect"
+            app:layout_constraintTop_toBottomOf="@id/image_coins">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_score_incorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chamfered_shape"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            app:layout_constraintStart_toEndOf="@id/card_score_correct"
+            app:layout_constraintEnd_toStartOf="@id/card_score_skipped"
+            app:layout_constraintTop_toTopOf="@id/card_score_correct"
+            app:layout_constraintBottom_toBottomOf="@id/card_score_correct">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_score_skipped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chamfered_shape"
+            android:layout_marginEnd="12dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            app:layout_constraintStart_toEndOf="@id/card_score_incorrect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/card_score_correct"
+            app:layout_constraintBottom_toBottomOf="@id/card_score_correct">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- TODO: make image and content description dynamic -->

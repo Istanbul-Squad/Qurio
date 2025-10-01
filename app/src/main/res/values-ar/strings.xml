@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">كوريو</string>
+    <string name="great_job">عملٌ رائع!</string>
+    <string name="reward">المكافأة</string>
+    <string name="correct">صحيح</string>
+    <string name="incorrect">غير صحيح</string>
+    <string name="skipped">تم تخطيه</string>
+    <string name="coins">عملات</string>
+</resources>

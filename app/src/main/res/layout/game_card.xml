@@ -12,6 +12,7 @@
         android:id="@+id/materialCardView2"
         android:layout_width="273dp"
         android:layout_height="344dp"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +23,7 @@
             android:id="@+id/game_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             tools:src="@drawable/test" />
 
         <TextView

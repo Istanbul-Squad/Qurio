@@ -104,4 +104,12 @@
         <item name="lineHeight">14sp</item>
         <item name="android:fontFamily">@font/fredoka_regular</item>
     </style>
+
+    <style name="CustomCardShape" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSizeTopRight">32dp</item>
+        <item name="cornerSizeTopLeft">32dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+    </style>
 </resources>

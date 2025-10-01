@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="streakState"
+            type="com.istanbul.qurio.StreakUiState" />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dayCircle"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:cardBackgroundColor="@{streakState.isActive ? @color/orange_variant : @color/surface}"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/flameIcon"
+                android:layout_width="16dp"
+                android:layout_height="23dp"
+                android:layout_marginHorizontal="6dp"
+                android:layout_marginVertical="3dp"
+                android:src="@drawable/fair"
+                android:visibility="@{streakState.isActive ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/dayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Label.XSmall"
+            android:text="@{streakState.day}"
+            android:textColor="@color/shade_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dayCircle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

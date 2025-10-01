@@ -17,4 +17,6 @@
     <color name="yellow">#f4c343</color>
     <color name="green">#739e61</color>
     <color name="red">#e12f32</color>
+    <color name="gradient_start_end">#0ABE21CC</color>
+    <color name="gradient_middle">#521190D9</color>
 </resources>

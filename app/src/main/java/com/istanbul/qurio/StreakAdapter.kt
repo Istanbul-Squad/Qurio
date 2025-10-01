@@ -17,7 +17,6 @@ class StreakAdapter(
             }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StreakViewHolder {
         val binding = ItemStreakBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StreakViewHolder(binding)

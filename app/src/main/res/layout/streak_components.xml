@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="98dp"
-    android:background="@drawable/background_surface">
+    android:background="@drawable/background_surface"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <ImageView
         android:id="@+id/imageView"
@@ -11,7 +14,7 @@
         android:layout_height="70dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="10dp"
-        android:contentDescription="Flame icon"
+        android:contentDescription="@string/flame_icon"
         android:src="@drawable/fair"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:background="@color/surface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,9 +30,10 @@
         <TextView
             android:id="@+id/number_of_day"
             style="@style/Label.Medium"
+            tools:text="0 day streak, start make a series"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0 day streak, start make a series"
+            android:text=""
             android:textColor="@color/shade_primary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,9 +41,10 @@
         <TextView
             android:id="@+id/textView2"
             style="@style/Label.XSmall"
+            tools:text="KEEP IT UP!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="KEEP IT UP!"
+            android:text=""
             android:textColor="@color/shade_secondary"
             app:layout_constraintStart_toStartOf="@+id/number_of_day"
             app:layout_constraintTop_toBottomOf="@+id/number_of_day" />

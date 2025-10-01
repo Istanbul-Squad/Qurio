@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginHorizontal="2dp">
 
     <androidx.cardview.widget.CardView
@@ -38,5 +39,6 @@
         android:textColor="@color/shade_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dayCircle" />
+        app:layout_constraintTop_toBottomOf="@+id/dayCircle"
+        tools:text="s" />
 </androidx.constraintlayout.widget.ConstraintLayout>

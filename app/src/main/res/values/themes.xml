@@ -117,8 +117,7 @@
         <item name="android:layout_height">37dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="textAllCaps">false</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_regular</item>
+        <item name="android:textAppearance">@style/Label.Medium</item>
         <item name="android:textAlignment">center</item>
         <item name="chipBackgroundColor">@color/difficulty_chip_background</item>
         <item name="android:textColor">@color/difficulty_level_text_color</item>

@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Qurio</string>
+    <string name="great_job">great job</string>
+    <string name="reward">reward</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
+    <string name="skipped">Skipped</string>
+    <string name="coins">coins</string>
     <string name="back_arrow_icon">back arrow icon</string>
     <string name="setting_icon">setting icon</string>
     <string name="welcome_qurio_explorer">Welcome Qurio explorer</string>
@@ -7,4 +13,7 @@
     <string name="start_right_icon">start right icon</string>
     <string name="start_left_icon">start left icon</string>
     <string name="play_now">play now</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>

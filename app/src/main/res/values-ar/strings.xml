@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">كويريو</string>
+    <string name="app_name">كوريو</string>
+    <string name="great_job">عملٌ رائع!</string>
+    <string name="reward">المكافأة</string>
+    <string name="correct">صحيح</string>
+    <string name="incorrect">غير صحيح</string>
+    <string name="skipped">تم تخطيه</string>
+    <string name="coins">عملات</string>
     <string name="back_arrow_icon">أيقونة السهم للخلف</string>
     <string name="setting_icon">أيقونة الإعدادات</string>
     <string name="welcome_qurio_explorer">مرحباً أيها المستكشف في كويريو</string>
@@ -8,4 +14,7 @@
     <string name="start_right_icon">أيقونة البدء اليمنى</string>
     <string name="start_left_icon">أيقونة البدء اليسرى</string>
     <string name="play_now">العب الآن</string>
+    <string name="easy">سهل</string>
+    <string name="medium">متوسط</string>
+    <string name="hard">صعب</string>
 </resources>

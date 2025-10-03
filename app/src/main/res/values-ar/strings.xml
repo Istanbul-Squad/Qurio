@@ -7,4 +7,13 @@
     <string name="incorrect">غير صحيح</string>
     <string name="skipped">تم تخطيه</string>
     <string name="coins">عملات</string>
+    <string name="app_name">كويريو</string>
+    <string name="back_arrow_icon">أيقونة السهم للخلف</string>
+    <string name="setting_icon">أيقونة الإعدادات</string>
+    <string name="welcome_qurio_explorer">مرحباً أيها المستكشف في كويريو</string>
+    <string name="character_image">صورة الشخصية</string>
+
+    <string name="easy">سهل</string>
+    <string name="medium">متوسط</string>
+    <string name="hard">صعب</string>
 </resources>

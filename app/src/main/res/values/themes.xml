@@ -109,7 +109,7 @@
         <item name="cornerFamily">cut</item>
         <item name="cornerSizeTopRight">32dp</item>
         <item name="cornerSizeTopLeft">32dp</item>
-        <item name="cornerSizeBottomRight">20dp</item>
-        <item name="cornerSizeBottomLeft">20dp</item>
+        <item name="cornerSizeBottomRight">30dp</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
     </style>
 </resources>

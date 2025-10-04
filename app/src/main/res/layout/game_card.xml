@@ -7,35 +7,39 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <com.google.android.material.card.MaterialCardView
+    <com.istanbul.qurio.game_card.TiltedCardView
         android:id="@+id/materialCardView2"
-        android:layout_width="273dp"
-        android:layout_height="344dp"
+        android:layout_width="160dp"
+        android:layout_height="243dp"
+        android:clipChildren="true"
         app:cardPreventCornerOverlap="false"
-        app:strokeWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/CustomCardShape">
+        app:shapeAppearanceOverlay="@style/CustomCardShape"
+        app:strokeWidth="0dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/game_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/CustomCardShape"
             tools:src="@drawable/test" />
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/gameTitle"
             style="@style/Title.Large"
             android:layout_width="match_parent"
-            android:layout_height="106dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_gravity="bottom|center_horizontal"
             android:gravity="center_horizontal"
+            android:maxLines="2"
             android:text=""
             android:textColor="@color/on_primary"
+            android:textSize="16sp"
             tools:text="Geography" />
-
-    </com.google.android.material.card.MaterialCardView>
+    </com.istanbul.qurio.game_card.TiltedCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

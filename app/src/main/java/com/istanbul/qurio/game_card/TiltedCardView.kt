@@ -12,10 +12,8 @@ class TiltedCardView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs) {
 
     private val path = Path()
-
     private val topInsetPx = 4f * resources.displayMetrics.density
     private val bottomInsetPx = 12f * resources.displayMetrics.density
-
     private val topCutHeight = 0f
     private val bottomCutHeight = 0f
 

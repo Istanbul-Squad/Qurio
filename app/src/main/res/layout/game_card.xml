@@ -17,14 +17,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/CustomCardShape"
-        app:strokeWidth="0dp">
+        app:shapeAppearanceOverlay="@style/CustomCardShape">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/game_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
+            app:strokeColor="@color/cardview_light_background"
+            app:strokeWidth="3dp"
             app:shapeAppearanceOverlay="@style/CustomCardShape"
             tools:src="@drawable/test" />
 

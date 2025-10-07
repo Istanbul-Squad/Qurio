@@ -53,6 +53,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.core.splashscreen)
 
+    implementation(libs.lottie)
     implementation( libs.dagger)
     kapt(libs.dagger.compiler)
 

@@ -17,4 +17,7 @@
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
     <string name="flame_icon">Flame icon</string>
+    <string name="lives">lives</string>
+    <string name="points">Points</string>
+    <string name="awards">Awards</string>
 </resources>

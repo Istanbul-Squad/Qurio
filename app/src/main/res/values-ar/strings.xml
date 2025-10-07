@@ -18,5 +18,8 @@
     <string name="medium">متوسط</string>
     <string name="hard">صعب</string>
     <string name="flame_icon">أيقونة اللهب</string>
+    <string name="lives">ارواح</string>
+    <string name="points">نقاط</string>
+    <string name="awards">جوائز</string>
 
 </resources>

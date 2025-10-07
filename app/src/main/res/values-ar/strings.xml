@@ -22,4 +22,13 @@
     <string name="no_connection">لا يوجد اتصال</string>
     <string name="oops_no_internet">يبدو انه انقطع الاتصال. من فضلك تأكد من الانترنت قبل اكمال اللعب</string>
     <string name="retry">اعادة التحميل</string>
+    <string name="onboarding_image">صورة الترحيب</string>
+    <string name="swipe_up_to_play">اسحب للأعلى لبدء اللعب!</string>
+    <string name="arrow_left_icon">أيقونة السهم الأيسر</string>
+    <string name="arrow_right_icon">أيقونة السهم الأيمن</string>
+    <string name="first_arrow">السهم الأول</string>
+    <string name="second_arrow">السهم الثاني</string>
+    <string name="third_arrow">السهم الثالث</string>
+    <string name="swipe_image">صورة السحب</string>
+
 </resources>

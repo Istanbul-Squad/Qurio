@@ -18,4 +18,7 @@
     <string name="hard">Hard</string>
     <string name="flame_icon">Flame icon</string>
     <string name="loading_game">Loading Game</string>
+    <string name="no_connection">No Connection</string>
+    <string name="oops_no_internet">Oops! It looks like you’re offline. Please check your internet connection to continue playing</string>
+    <string name="retry">Retry</string>
 </resources>

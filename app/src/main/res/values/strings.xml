@@ -21,4 +21,6 @@
     <string name="no_connection">No Connection</string>
     <string name="oops_no_internet">Oops! It looks like you’re offline. Please check your internet connection to continue playing</string>
     <string name="retry">Retry</string>
+    <string name="header_question">header_question</string>
+    <string name="question_image">question_image</string>
 </resources>

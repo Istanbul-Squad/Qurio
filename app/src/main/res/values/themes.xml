@@ -115,6 +115,11 @@
         <item name="lineHeight">14sp</item>
         <item name="android:fontFamily">@font/fredoka_regular</item>
     </style>
+    <style name="background_card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:foreground">@drawable/background_question_card</item>
+    </style>
 
 
     <style name="DifficultyLevelStyle" parent="Widget.MaterialComponents.Chip.Choice">

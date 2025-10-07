@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="328dp"
-    android:layout_height="229dp">
+    android:layout_height="219dp">
     <View
         android:id="@+id/background_question_card"
         style="@style/background_card"

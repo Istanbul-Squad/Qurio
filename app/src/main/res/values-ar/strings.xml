@@ -22,4 +22,8 @@
     <string name="points">نقاط</string>
     <string name="awards">جوائز</string>
 
+    <string name="loading_game">جاري تحميل اللعبة</string>
+    <string name="no_connection">لا يوجد اتصال</string>
+    <string name="oops_no_internet">يبدو انه انقطع الاتصال. من فضلك تأكد من الانترنت قبل اكمال اللعب</string>
+    <string name="retry">اعادة التحميل</string>
 </resources>

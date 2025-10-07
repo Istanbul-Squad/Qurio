@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="-24dp"
+        android:contentDescription="@string/question_image"
         android:elevation="1dp"
         android:src="@drawable/question_image"
         app:layout_constraintBottom_toBottomOf="@id/background_question_card"

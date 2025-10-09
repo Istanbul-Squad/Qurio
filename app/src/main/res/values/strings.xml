@@ -24,4 +24,19 @@
     <string name="no_connection">No Connection</string>
     <string name="oops_no_internet">Oops! It looks like you’re offline. Please check your internet connection to continue playing</string>
     <string name="retry">Retry</string>
+    <string name="card_background">card background</string>
+    <string name="character">Character</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="buy">Buy</string>
+    <string name="_1">1</string>
+    <string name="euqal">=</string>
+    <string name="_200">200</string>
+    <string name="buy_character">Buy Character</string>
+    <string name="_300x">300X</string>
+    <string name="lock_icon">lock icon</string>
+    <string name="rika">Rika</string>
+    <string name="age_12_sunblooms">Age: 12 Sunblooms</string>
+    <string name="description">Nature’s little explorer! Rika talks to mushrooms and swears squirrels give her battle advice. Always ready for an adventure.</string>
+    <string name="ok">Ok</string>
 </resources>

@@ -1,10 +1,11 @@
-package com.istanbul.qurio
+package com.istanbul.qurio.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.istanbul.qurio.R
 import com.istanbul.qurio.databinding.ItemStreakBinding
 
 class StreakDayAdapter(

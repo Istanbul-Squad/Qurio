@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/statistics"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <View
+        android:id="@+id/statistics_start"
+        android:layout_width="96dp"
+        android:layout_height="50dp"
+        android:background="@drawable/statistics_left_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/statistics_middle"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/im_plus"
+        app:layout_constraintTop_toTopOf="@id/statistics_start"
+        app:layout_constraintStart_toStartOf="@id/statistics_start"/>
+
+    <LinearLayout
+        android:id="@+id/lives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/statistics_start"
+        app:layout_constraintStart_toStartOf="@id/statistics_start"
+        app:layout_constraintEnd_toEndOf="@id/statistics_start">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/im_heart"/>
+
+        <TextView
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="4dp"
+            android:textColor="@color/shade_primary"
+            tools:text="4" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="46dp"
+        android:layout_height="2dp"
+        android:background="@drawable/blue_indicator"
+        app:layout_constraintStart_toStartOf="@id/statistics_start"
+        app:layout_constraintEnd_toEndOf="@id/statistics_start"
+        app:layout_constraintBottom_toBottomOf="@id/statistics_start" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/shade_tertiary"
+        style="@style/Label.XSmall"
+        tools:text="@string/lives"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintStart_toStartOf="@id/statistics_start"
+        app:layout_constraintEnd_toEndOf="@id/statistics_start"
+        app:layout_constraintBottom_toTopOf="@+id/lives"/>
+
+    <View
+        android:id="@+id/statistics_middle"
+        android:layout_width="144dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/statistics_middle_shape"
+        app:layout_constraintStart_toEndOf="@id/statistics_start"
+        app:layout_constraintEnd_toStartOf="@id/statistics_end"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/statistics_middle"
+        app:layout_constraintEnd_toEndOf="@id/statistics_middle"
+        app:layout_constraintTop_toTopOf="@id/statistics_middle"
+        android:src="@drawable/im_crown"/>
+
+    <LinearLayout
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/statistics_middle"
+        app:layout_constraintStart_toStartOf="@id/statistics_middle"
+        app:layout_constraintEnd_toEndOf="@id/statistics_middle">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:paddingTop="4dp"
+            android:src="@drawable/im_coins"/>
+
+        <TextView
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="4dp"
+            android:textColor="@color/shade_primary"
+            tools:text="5,400" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="67dp"
+        android:layout_height="2dp"
+        android:background="@drawable/blue_indicator"
+        app:layout_constraintStart_toStartOf="@id/statistics_middle"
+        app:layout_constraintEnd_toEndOf="@id/statistics_middle"
+        app:layout_constraintBottom_toBottomOf="@id/statistics_middle" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/shade_tertiary"
+        style="@style/Label.XSmall"
+        tools:text="@string/points"
+        app:layout_constraintStart_toStartOf="@id/statistics_middle"
+        app:layout_constraintEnd_toEndOf="@id/statistics_middle"
+        app:layout_constraintBottom_toTopOf="@+id/points"/>
+
+    <View
+        android:id="@+id/statistics_end"
+        android:layout_width="96dp"
+        android:layout_height="50dp"
+        android:background="@drawable/statistics_right_shape"
+        app:layout_constraintStart_toEndOf="@id/statistics_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/trophies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/statistics_end"
+        app:layout_constraintStart_toStartOf="@id/statistics_end"
+        app:layout_constraintEnd_toEndOf="@id/statistics_end">
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:src="@drawable/im_trophy"/>
+
+        <TextView
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="4dp"
+            android:textColor="@color/shade_primary"
+            tools:text="4" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/im_arrow_right"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="46dp"
+        android:layout_height="2dp"
+        android:background="@drawable/blue_indicator"
+        app:layout_constraintStart_toStartOf="@id/statistics_end"
+        app:layout_constraintEnd_toEndOf="@id/statistics_end"
+        app:layout_constraintBottom_toBottomOf="@id/statistics_end"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/shade_tertiary"
+        style="@style/Label.XSmall"
+        tools:text="@string/awards"
+        app:layout_constraintStart_toStartOf="@id/statistics_end"
+        app:layout_constraintEnd_toEndOf="@id/statistics_end"
+        app:layout_constraintBottom_toTopOf="@+id/trophies"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

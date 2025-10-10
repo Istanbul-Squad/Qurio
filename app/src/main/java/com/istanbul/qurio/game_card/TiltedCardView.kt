@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.core.graphics.withClip
 
-class TiltedCardView @JvmOverloads constructor(
+open class TiltedCardView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
 

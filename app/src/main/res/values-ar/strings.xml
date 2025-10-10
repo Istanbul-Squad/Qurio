@@ -26,4 +26,16 @@
     <string name="no_connection">لا يوجد اتصال</string>
     <string name="oops_no_internet">يبدو انه انقطع الاتصال. من فضلك تأكد من الانترنت قبل اكمال اللعب</string>
     <string name="retry">اعادة التحميل</string>
+
+    <!-- Category Titles -->
+    <string name="category_title_geography">جغرافيا</string>
+    <string name="category_title_science">علوم</string>
+    <string name="category_title_general_knowledge">معلومات عامة</string>
+    <string name="category_title_music">موسيقا</string>
+    <string name="category_title_film_tv">الأفلام والتلفاز</string>
+    <string name="category_title_food_drink">الطعام والشراب</string>
+    <string name="category_title_society_culture">المجتمع والثقافة</string>
+    <string name="category_title_sport_leisure">الرياضة والترفيه</string>
+    <string name="category_title_history">التاريخ</string>
+    <string name="category_title_arts_literature">الفنون والأدب</string>
 </resources>

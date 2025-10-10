@@ -1,38 +1,42 @@
 package com.istanbul.qurio.game_card
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.istanbul.qurio.R
-import com.istanbul.qurio.databinding.GameCardBinding
 
 class GameCardAdapter(
-    private val items: MutableList<GameCardUiState>,
-    private val listener: GameCardInteractionListener
-) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
+    private val onGameCardClicked: (id: Int) -> Unit,
+) : RecyclerView.Adapter<GameCardAdapter.GameCardAdapterViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.game_card, parent, false)
-        return GameCardViewHolder(view)
+    private var categoryList: List<CategoryUiModel> = emptyList()
+    fun submitList(categoryList: List<CategoryUiModel>) {
+        this.categoryList = categoryList
+        notifyDataSetChanged()
     }
 
-    override fun getItemCount() = items.size
+    override fun onCreateViewHolder(
+        parent: ViewGroup, viewType: Int
+    ): GameCardAdapterViewHolder {
+        return GameCardAdapterViewHolder(GameCard(parent.context))
+    }
 
-    override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
-        val currentItem = items[position]
-        holder.binding.apply {
-            gameTitle.text = currentItem.gameTitle
-            gameImage.setImageResource(currentItem.imageRes)
-            //TODO make the border dynamic based on category or someThing
-            root.setOnClickListener {
-                listener.onPlayGameClick()
-            }
+    override fun onBindViewHolder(holder: GameCardAdapterViewHolder, position: Int) {
+        holder.bind(categoryList[position])
+    }
+
+    override fun getItemCount(): Int = categoryList.size
+
+    inner class GameCardAdapterViewHolder(val gameCard: GameCard) :
+        RecyclerView.ViewHolder(gameCard) {
+        fun bind(categoryUiModel: CategoryUiModel) {
+            gameCard.setState(
+                title = categoryUiModel.title,
+                imageRes = categoryUiModel.imageRes,
+            )
+            gameCard.setOnClickListener { onGameCardClicked(categoryUiModel.id) }
         }
     }
-
-
-    class GameCardViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = GameCardBinding.bind(viewItem)
-    }
 }
+
+data class CategoryUiModel(
+    val id: Int, val title: String, val imageRes: Int, val startColor: Int, val endColor: Int
+)

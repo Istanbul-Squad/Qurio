@@ -58,4 +58,5 @@
     <string name="save_changes">حفظ التغييرات</string>
     <string name="discard">تجاهل</string>
     <string name="heptagon_shape">شكل سباعي</string>
+    <string name="difficulty_level">مستوي الصعوبة</string>
 </resources>

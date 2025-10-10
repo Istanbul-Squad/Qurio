@@ -1,26 +1,30 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <item
-        android:id="@android:id/background">
-        <shape android:shape="rectangle">
-            <corners android:radius="6dp" />
-            <solid android:color="@color/surface_high" />
-            <size android:height="8dp" />
-        </shape>
+    <item android:id="@android:id/background">
+        <vector
+            android:width="170dp"
+            android:height="18dp"
+            android:viewportWidth="300"
+            android:viewportHeight="20">
+            <path
+                android:fillColor="@color/surface_high"
+                android:pathData="M0,0 L300,0 L290,20 L10,20 Z"
+                android:strokeWidth="1"
+                android:strokeColor="@color/shade_quad" />
+        </vector>
     </item>
 
-
-    <item
-        android:id="@android:id/progress"
-        android:left="-30dp"
-        android:right="-30dp">
+    <item android:id="@android:id/progress">
         <clip>
-            <shape android:shape="rectangle">
-                <corners android:radius="6dp" />
-                <solid android:color="@color/primary_variant" />
-                <size android:height="8dp" />
-            </shape>
+            <vector
+                android:width="170dp"
+                android:height="18dp"
+                android:viewportWidth="300"
+                android:viewportHeight="20">
+                <path
+                    android:fillColor="@color/primary_variant"
+                    android:pathData="M0,0 L300,0 L290,20 L10,20 Z" />
+            </vector>
         </clip>
     </item>
 

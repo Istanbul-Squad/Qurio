@@ -41,4 +41,14 @@
     <string name="age_12_sunblooms">١٢ صن بلومز</string>
     <string name="description">المستكشفة الصغيرة للطبيعة! ريكا تتحدث مع الفِطريات وتؤكد أن السناجب تعطيها نصائح للمعارك. دائمًا مستعدة للمغامرة.</string>
     <string name="ok">حسنًا</string>
+    <string name="achievements">انجازات</string>
+    <string name="close_icon">رمز الاغلاق</string>
+    <string name="click_on_achievement_to_view_details">اضغط علي الانجاز لعرض التفاصيل</string>
+    <string name="title">عنوان</string>
+    <string name="collector">الجامع</string>
+    <string name="explorer">المستكشف</string>
+    <string name="you_love_experimenting">أنت تحب التجربة والاكتشاف! لقد جربت عدة فئات ولست محدودًا بواحدة فقط.
+كيفية الحصول عليها:
+العب في 4 فئات مختلفة على الأقل.    </string>
+    <string name="share_with_friends">شارك مع الأصدقاء</string>
 </resources>

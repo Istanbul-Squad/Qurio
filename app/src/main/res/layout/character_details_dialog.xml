@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/corners_cut_shape"
+        android:id="@+id/corner_shape"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="13dp"
@@ -27,7 +27,7 @@
         android:translationX="5dp"
         app:layout_constraintDimensionRatio="56:1"
         app:layout_constraintEnd_toStartOf="@id/heptagon_shape"
-        app:layout_constraintTop_toTopOf="@id/corners_cut_shape" />
+        app:layout_constraintTop_toTopOf="@id/corner_shape" />
 
     <View
         android:id="@+id/gradient_right"
@@ -37,7 +37,7 @@
         android:translationX="-5dp"
         app:layout_constraintDimensionRatio="56:1"
         app:layout_constraintStart_toEndOf="@id/heptagon_shape"
-        app:layout_constraintTop_toTopOf="@id/corners_cut_shape" />
+        app:layout_constraintTop_toTopOf="@id/corner_shape" />
 
     <ImageView
         android:id="@+id/heptagon_shape"
@@ -47,8 +47,8 @@
         android:contentDescription="@string/card_background"
         android:src="@drawable/heptagon_shape"
         app:layout_constraintDimensionRatio="145:40"
-        app:layout_constraintEnd_toEndOf="@id/corners_cut_shape"
-        app:layout_constraintStart_toStartOf="@id/corners_cut_shape"
+        app:layout_constraintEnd_toEndOf="@id/corner_shape"
+        app:layout_constraintStart_toStartOf="@id/corner_shape"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -71,8 +71,8 @@
         android:contentDescription="@string/card_background"
         android:src="@drawable/ic_close"
         app:layout_constraintDimensionRatio="22:26"
-        app:layout_constraintEnd_toEndOf="@+id/corners_cut_shape"
-        app:layout_constraintTop_toTopOf="@+id/corners_cut_shape" />
+        app:layout_constraintEnd_toEndOf="@+id/corner_shape"
+        app:layout_constraintTop_toTopOf="@+id/corner_shape" />
 
     <View
         android:id="@+id/view"
@@ -81,8 +81,8 @@
         android:layout_marginHorizontal="12dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/character_details_stroke"
-        app:layout_constraintEnd_toEndOf="@+id/corners_cut_shape"
-        app:layout_constraintStart_toStartOf="@+id/corners_cut_shape"
+        app:layout_constraintEnd_toEndOf="@+id/corner_shape"
+        app:layout_constraintStart_toStartOf="@+id/corner_shape"
         app:layout_constraintTop_toBottomOf="@+id/heptagon_shape" />
 
     <TextView
@@ -148,7 +148,7 @@
         android:textAllCaps="false"
         android:textColor="@drawable/primary_button_text_color"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/corners_cut_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/corner_shape"
         app:layout_constraintEnd_toEndOf="@+id/character_description"
         app:layout_constraintStart_toStartOf="@+id/character_description"
         />

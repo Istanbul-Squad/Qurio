@@ -39,4 +39,12 @@
     <string name="age_12_sunblooms">Age: 12 Sunblooms</string>
     <string name="description">Nature’s little explorer! Rika talks to mushrooms and swears squirrels give her battle advice. Always ready for an adventure.</string>
     <string name="ok">Ok</string>
+    <string name="achievements">Achievements</string>
+    <string name="close_icon">close icon</string>
+    <string name="click_on_achievement_to_view_details">*Click on achievement to view details</string>
+    <string name="title">title</string>
+    <string name="collector">collector</string>
+    <string name="explorer">Explorer</string>
+    <string name="you_love_experimenting">You love experimenting and discovering! You\'ve tried several categories and aren\'t limited to just one. \n How to get: \n Play in at least 4 different categories.</string>
+    <string name="share_with_friends">Share with friends</string>
 </resources>

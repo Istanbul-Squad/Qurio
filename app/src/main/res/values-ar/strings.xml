@@ -38,4 +38,37 @@
     <string name="category_title_sport_leisure">الرياضة والترفيه</string>
     <string name="category_title_history">التاريخ</string>
     <string name="category_title_arts_literature">الفنون والأدب</string>
+    <string name="card_background">خلفية الكارد</string>
+    <string name="character">شخصية</string>
+    <string name="confirm">تأكيد</string>
+    <string name="cancel">الغاء</string>
+    <string name="buy">شراء</string>
+    <string name="_1">1</string>
+    <string name="euqal">=</string>
+    <string name="_200">200</string>
+    <string name="buy_character">شراء الشخصية</string>
+    <string name="_300x">300X</string>
+    <string name="lock_icon">رمز القفل</string>
+    <string name="rika">ريكا</string>
+    <string name="age_12_sunblooms">١٢ صن بلومز</string>
+    <string name="description">المستكشفة الصغيرة للطبيعة! ريكا تتحدث مع الفِطريات وتؤكد أن السناجب تعطيها نصائح للمعارك. دائمًا مستعدة للمغامرة.</string>
+    <string name="ok">حسنًا</string>
+    <string name="achievements">انجازات</string>
+    <string name="close_icon">رمز الاغلاق</string>
+    <string name="click_on_achievement_to_view_details">اضغط علي الانجاز لعرض التفاصيل</string>
+    <string name="title">عنوان</string>
+    <string name="collector">الجامع</string>
+    <string name="explorer">المستكشف</string>
+    <string name="you_love_experimenting">أنت تحب التجربة والاكتشاف! لقد جربت عدة فئات ولست محدودًا بواحدة فقط.
+كيفية الحصول عليها:
+العب في 4 فئات مختلفة على الأقل.    </string>
+    <string name="share_with_friends">شارك مع الأصدقاء</string>
+    <string name="minus">-</string>
+    <string name="sound">صوت</string>
+    <string name="music">موسيقي</string>
+    <string name="settings">الاعدادات</string>
+    <string name="save_changes">حفظ التغييرات</string>
+    <string name="discard">تجاهل</string>
+    <string name="heptagon_shape">شكل سباعي</string>
+    <string name="difficulty_level">مستوي الصعوبة</string>
 </resources>

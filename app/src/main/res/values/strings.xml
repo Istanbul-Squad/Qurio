@@ -36,3 +36,35 @@
     <string name="category_title_sport_leisure">Sport &amp; Leisure</string>
     <string name="category_title_history">History</string>
     <string name="category_title_arts_literature">Arts &amp; Literature</string></resources>
+    <string name="card_background">card background</string>
+    <string name="character">Character</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="buy">Buy</string>
+    <string name="_1">1</string>
+    <string name="euqal">=</string>
+    <string name="_200">200</string>
+    <string name="buy_character">Buy Character</string>
+    <string name="_300x">300X</string>
+    <string name="lock_icon">lock icon</string>
+    <string name="rika">Rika</string>
+    <string name="age_12_sunblooms">Age: 12 Sunblooms</string>
+    <string name="description">Nature’s little explorer! Rika talks to mushrooms and swears squirrels give her battle advice. Always ready for an adventure.</string>
+    <string name="ok">Ok</string>
+    <string name="achievements">Achievements</string>
+    <string name="close_icon">close icon</string>
+    <string name="click_on_achievement_to_view_details">*Click on achievement to view details</string>
+    <string name="title">title</string>
+    <string name="collector">collector</string>
+    <string name="explorer">Explorer</string>
+    <string name="you_love_experimenting">You love experimenting and discovering! You\'ve tried several categories and aren\'t limited to just one. \n How to get: \n Play in at least 4 different categories.</string>
+    <string name="share_with_friends">Share with friends</string>
+    <string name="minus">-</string>
+    <string name="sound">Sound</string>
+    <string name="music">Music</string>
+    <string name="settings">Settings</string>
+    <string name="save_changes">Save changes</string>
+    <string name="discard">Discard</string>
+    <string name="heptagon_shape">heptagon shape</string>
+    <string name="difficulty_level">Difficulty level</string>
+</resources>

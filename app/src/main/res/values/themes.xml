@@ -4,7 +4,7 @@
 
     <style name="Theme.Qurio" parent="Base.Theme.Qurio" />
 
-    <style name="Base.Theme.Qurio" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.Theme.Qurio" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/on_primary</item>

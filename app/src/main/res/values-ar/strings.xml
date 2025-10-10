@@ -11,10 +11,19 @@
     <string name="setting_icon">أيقونة الإعدادات</string>
     <string name="welcome_qurio_explorer">مرحباً أيها المستكشف في كويريو</string>
     <string name="character_image">صورة الشخصية</string>
-
+    <string name="start_right_icon">أيقونة البدء اليمنى</string>
+    <string name="start_left_icon">أيقونة البدء اليسرى</string>
+    <string name="play_now">العب الآن</string>
     <string name="easy">سهل</string>
     <string name="medium">متوسط</string>
     <string name="hard">صعب</string>
     <string name="flame_icon">أيقونة اللهب</string>
+    <string name="lives">ارواح</string>
+    <string name="points">نقاط</string>
+    <string name="awards">جوائز</string>
 
+    <string name="loading_game">جاري تحميل اللعبة</string>
+    <string name="no_connection">لا يوجد اتصال</string>
+    <string name="oops_no_internet">يبدو انه انقطع الاتصال. من فضلك تأكد من الانترنت قبل اكمال اللعب</string>
+    <string name="retry">اعادة التحميل</string>
 </resources>

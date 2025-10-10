@@ -51,4 +51,10 @@
 كيفية الحصول عليها:
 العب في 4 فئات مختلفة على الأقل.    </string>
     <string name="share_with_friends">شارك مع الأصدقاء</string>
+    <string name="minus">-</string>
+    <string name="sound">صوت</string>
+    <string name="music">موسيقي</string>
+    <string name="settings">الاعدادات</string>
+    <string name="save_changes">حفظ التغييرات</string>
+    <string name="discard">تجاهل</string>
 </resources>

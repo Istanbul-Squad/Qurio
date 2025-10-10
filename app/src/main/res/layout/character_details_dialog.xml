@@ -145,13 +145,13 @@
         android:layout_height="44dp"
         android:background="@drawable/secondary_button_background"
         android:text="@string/buy"
+        android:layout_marginBottom="36dp"
         android:textAllCaps="false"
         android:textColor="@drawable/primary_button_text_color"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/corner_shape"
         app:layout_constraintEnd_toEndOf="@+id/character_description"
-        app:layout_constraintStart_toStartOf="@+id/character_description"
-        />
+        app:layout_constraintStart_toStartOf="@+id/character_description" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

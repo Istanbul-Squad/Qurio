@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_play"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp">
+
+    <ImageView
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/im_back_arrow"
+        android:contentDescription="@string/back"
+        app:layout_constraintTop_toTopOf="@id/image_coin"
+        app:layout_constraintBottom_toBottomOf="@id/image_coin"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/text_number_of_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:text="4"
+        android:textColor="@color/shade_primary"
+        style="@style/Label.Medium"
+        android:layout_marginVertical="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    
+    <ImageView
+        android:id="@+id/image_coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/im_coin"
+        android:contentDescription="@string/coin"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="-4dp"
+        app:layout_constraintTop_toTopOf="@id/text_number_of_coins"
+        app:layout_constraintBottom_toBottomOf="@id/text_number_of_coins"
+        app:layout_constraintEnd_toStartOf="@id/text_number_of_coins" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

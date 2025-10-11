@@ -12,11 +12,11 @@ abstract class BasePresenter<V : BaseView> {
     protected var view: V? = null
         private set
 
-    fun attachView(view: V) {
+    protected fun attachView(view: V) {
         this.view = view
     }
 
-    fun detachView() {
+    protected fun detachView() {
         coroutineScope.coroutineContext.cancelChildren()
         view = null
     }

@@ -55,4 +55,6 @@
     <string name="discard">Discard</string>
     <string name="heptagon_shape">heptagon shape</string>
     <string name="difficulty_level">Difficulty level</string>
+    <string name="back">back</string>
+    <string name="coin">coin</string>
 </resources>

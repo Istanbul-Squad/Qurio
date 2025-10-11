@@ -55,4 +55,8 @@
     <string name="discard">Discard</string>
     <string name="heptagon_shape">heptagon shape</string>
     <string name="difficulty_level">Difficulty level</string>
+    <string name="date_section_background">date section background</string>
+    <string name="game_time_icon">game time icon</string>
+    <string name="game_star_icon">game star icon</string>
+    <string name="game_coins_icon">game coins icon</string>
 </resources>

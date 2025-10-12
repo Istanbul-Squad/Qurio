@@ -62,4 +62,6 @@
     <string name="header_question">header_question</string>
     <string name="question_image">question_image</string>
     <string name="background_question_card">background_question_card</string>
+    <string name="left_corner">Left corner</string>
+    <string name="right_corner">Right corner</string>
 </resources>

@@ -110,7 +110,7 @@
     <style name="Label.Small">
         <item name="android:textSize">10sp</item>
         <item name="lineHeight">16sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_medium</item>
+        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="Label.XSmall">

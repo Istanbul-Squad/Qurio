@@ -66,4 +66,7 @@
     <string name="right_corner">Right corner</string>
     <string name="back">back</string>
     <string name="coin">coin</string>
+    <string name="check">Check</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
 </resources>

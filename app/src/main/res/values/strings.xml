@@ -59,4 +59,7 @@
     <string name="game_time_icon">game time icon</string>
     <string name="game_star_icon">game star icon</string>
     <string name="game_coins_icon">game coins icon</string>
+    <string name="header_question">header_question</string>
+    <string name="question_image">question_image</string>
+    <string name="background_question_card">background_question_card</string>
 </resources>

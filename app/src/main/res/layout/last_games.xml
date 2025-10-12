@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/last_game_layout"
+        android:layout_width="0dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/last_game_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/game_category"
+            style="@style/Body.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fredoka_one_medium"
+            android:textColor="@color/on_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Science &amp; Natural" />
+
+        <ImageView
+            android:id="@+id/ic_coin_stack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/game_coins_icon"
+            android:src="@drawable/ic_coin_stack"
+            app:layout_constraintEnd_toStartOf="@+id/plus_coins"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_category" />
+
+        <TextView
+            android:id="@+id/plus_coins"
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLength="5"
+            android:textColor="@color/shade_primary"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_coin_stack"
+            app:layout_constraintEnd_toStartOf="@+id/coin_divider"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ic_coin_stack"
+            app:layout_constraintTop_toTopOf="@+id/ic_coin_stack"
+            tools:text="304" />
+
+        <TextView
+            android:id="@+id/munies_coins"
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLength="5"
+            android:textColor="@color/red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/plus_coins"
+            app:layout_constraintEnd_toEndOf="@+id/plus_coins"
+            app:layout_constraintStart_toStartOf="@+id/plus_coins"
+            app:layout_constraintTop_toTopOf="@+id/plus_coins"
+            tools:text="-3054" />
+
+        <View
+            android:id="@+id/coin_divider"
+            android:layout_width="1dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="25dp"
+            android:background="@color/shade_quad"
+            app:layout_constraintBottom_toBottomOf="@+id/plus_coins"
+            app:layout_constraintEnd_toStartOf="@+id/ic_star"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/plus_coins"
+            app:layout_constraintTop_toTopOf="@+id/plus_coins" />
+
+        <ImageView
+            android:id="@+id/ic_star"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="36dp"
+            android:contentDescription="@string/game_star_icon"
+            android:src="@drawable/ic_blue_star"
+            app:layout_constraintBottom_toBottomOf="@+id/coin_divider"
+            app:layout_constraintEnd_toStartOf="@+id/game_star_rate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/coin_divider"
+            app:layout_constraintTop_toTopOf="@+id/coin_divider" />
+
+        <TextView
+            android:id="@+id/game_star_rate"
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLength="3"
+            android:textColor="@color/shade_primary"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_star"
+            app:layout_constraintEnd_toStartOf="@+id/star_divider"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ic_star"
+            app:layout_constraintTop_toTopOf="@+id/ic_star"
+            tools:text="0" />
+
+        <View
+            android:id="@+id/star_divider"
+            android:layout_width="1dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="22dp"
+            android:background="@color/shade_quad"
+            app:layout_constraintBottom_toBottomOf="@+id/game_star_rate"
+            app:layout_constraintEnd_toStartOf="@+id/ic_time"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/game_star_rate"
+            app:layout_constraintTop_toTopOf="@+id/game_star_rate" />
+
+        <ImageView
+            android:id="@+id/ic_time"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="37dp"
+            android:contentDescription="@string/game_time_icon"
+            android:src="@drawable/ic_time"
+            app:layout_constraintBottom_toBottomOf="@+id/star_divider"
+            app:layout_constraintEnd_toStartOf="@+id/game_time"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/star_divider"
+            app:layout_constraintTop_toTopOf="@+id/star_divider" />
+
+        <TextView
+            android:id="@+id/game_time"
+            style="@style/Label.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/shade_primary"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ic_time"
+            app:layout_constraintTop_toTopOf="@+id/ic_time"
+            tools:text="1m 33sec" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="56dp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_left"
+        app:layout_constraintBottom_toTopOf="@+id/last_game_layout"
+        app:layout_constraintEnd_toStartOf="@id/date_section" />
+
+    <ImageView
+        android:id="@+id/date_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/date_section_background"
+        android:src="@drawable/date_section"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="56dp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_right"
+        app:layout_constraintBottom_toTopOf="@+id/last_game_layout"
+        app:layout_constraintStart_toEndOf="@+id/date_section" />
+
+    <TextView
+        android:id="@+id/date"
+        style="@style/Label.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one_medium"
+        android:textColor="@color/on_primary"
+        app:layout_constraintBottom_toBottomOf="@+id/date_section"
+        app:layout_constraintEnd_toEndOf="@+id/date_section"
+        app:layout_constraintStart_toStartOf="@+id/date_section"
+        app:layout_constraintTop_toTopOf="@+id/date_section"
+        tools:text="22-02-2002" />
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="8dp"
+        android:background="@drawable/last_game_polygon_shape"
+        android:translationY="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/last_game_layout"
+        app:layout_constraintStart_toStartOf="@+id/last_game_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,9 @@
         <item name="android:colorBackground">@color/surface_high</item>
 
     </style>
+    <style name="questionImageStyle">
+        <item name="android:radius">8dp</item>
+    </style>
 
     <!-- Splash screen theme -->
 
@@ -117,8 +120,7 @@
     </style>
     <style name="background_card" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">16dp</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:foreground">@drawable/background_question_card</item>
+        <item name="android:backgroundTint">@drawable/background_question_card</item>
     </style>
 
 

@@ -24,4 +24,6 @@
     <string name="retry">اعادة التحميل</string>
     <string name="question_image">صورة_السؤال</string>
     <string name="header_question">رأس_سؤال</string>
+    <string name="background_question_card">بطاقة_سؤال_الخلفية</string>
+
 </resources>

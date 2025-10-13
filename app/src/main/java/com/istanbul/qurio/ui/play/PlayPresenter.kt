@@ -1,12 +1,22 @@
 package com.istanbul.qurio.ui.play
 
 import com.istanbul.qurio.model.Answer
+import com.istanbul.qurio.model.Quiz
+import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BasePresenter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PlayPresenter @Inject constructor(
-    playView: PlayView
+    playView: PlayView,
+    private val triviaRepository: TriviaRepository
 ) : BasePresenter<PlayView>() {
+    private lateinit var quiz: Quiz
+    private var currentQuestion: Int = 1
+
     init {
         attachView(playView)
     }
@@ -20,8 +30,28 @@ class PlayPresenter @Inject constructor(
         view?.updateCoinsNumber(coins)
     }
 
-    fun getQuiz() {
-        TODO("Not yet implemented")
+    fun getQuiz(
+        category: Int,
+        difficulty: String
+    ) {
+        coroutineScope.launch {
+            try {
+                quiz = triviaRepository.getQuiz(
+                    category = category,
+                    difficulty = difficulty
+
+                )
+                showCurrentQuestion()
+            } catch (e: Exception) {
+                handleException(e)
+            }
+        }
+    }
+
+    fun showCurrentQuestion() {
+        if (currentQuestion <= MAX_NUM_OF_QUESTIONS) {
+            view?.showQuestion(quiz.questions[currentQuestion], currentQuestion)
+        }
     }
 
     fun startTimer() {
@@ -46,5 +76,13 @@ class PlayPresenter @Inject constructor(
 
     fun onNextClick() {
         TODO("Not yet implemented")
+    }
+
+    private fun handleException(e: Exception) {
+        TODO("Not yet implemented")
+    }
+
+    companion object {
+        const val MAX_NUM_OF_QUESTIONS = 12
     }
 }

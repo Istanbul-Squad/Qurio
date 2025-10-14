@@ -47,91 +47,89 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/onboarding_image"
-        android:scaleType="fitCenter"
+        android:paddingVertical="42dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/onboarding1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description"
-        app:layout_constraintBottom_toTopOf="@id/swipe_Card"/>
-
-
-    <ImageView
-        android:id="@+id/previous_page_icon"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="152dp"
-        android:clickable="true"
-        android:contentDescription="@string/arrow_left_icon"
-        android:focusable="true"
-        android:src="@drawable/arrow_left"
-        app:layout_constraintEnd_toStartOf="@id/onboarding_image"
-        app:layout_constraintHorizontal_bias="0.389"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/description" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
-        android:id="@+id/next_page_icon"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="152dp"
-        android:clickable="true"
-        android:contentDescription="@string/arrow_right_icon"
-        android:focusable="true"
-        android:src="@drawable/arrow_right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
-        app:layout_constraintStart_toEndOf="@id/onboarding_image"
-        app:layout_constraintTop_toBottomOf="@id/description" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/swipe_Card"
+        android:id="@+id/previousPageIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/surface"
-        app:cardCornerRadius="100dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@id/swip_to_play_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginTop="28dp"
+        android:contentDescription="@string/arrow_left_icon"
+        android:src="@drawable/left_shadow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <LinearLayout
+    <ImageView
+        android:id="@+id/nextPageIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:contentDescription="@string/arrow_right_icon"
+        android:src="@drawable/right_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/swipe_Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/swipe_card_shape"
+            android:layout_marginBottom="4dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toTopOf="@id/swip_to_play_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/first_arrow"
-                android:src="@drawable/arrow_up"
-                app:tint="@color/shade_primary" />
+                android:layout_gravity="center"
+                android:background="@drawable/swipe_card_shape"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/second_arrow"
-                android:src="@drawable/arrow_up"
-                app:tint="@color/shade_secondary" />
+                <ImageView
+                    android:id="@+id/first_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/first_arrow"
+                    android:src="@drawable/arrow_up"
+                    app:tint="@color/shade_primary" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/third_arrow"
-                android:src="@drawable/arrow_up"
-                app:tint="@color/shade_tertiary" />
+                <ImageView
+                    android:id="@+id/second_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/second_arrow"
+                    android:src="@drawable/arrow_up"
+                    app:tint="@color/shade_secondary" />
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/swipe_image"
-                android:src="@drawable/swipe_image" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/third_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/third_arrow"
+                    android:src="@drawable/arrow_up"
+                    app:tint="@color/shade_tertiary" />
+
+                <ImageView
+                    android:id="@+id/swip_image"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/swipe_image"
+                    android:src="@drawable/swipe_image" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/swip_to_play_text"

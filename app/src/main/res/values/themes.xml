@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
 
     <style name="Theme.Qurio" parent="Base.Theme.Qurio" />
 
-    <style name="Base.Theme.Qurio" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.Theme.Qurio" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/on_primary</item>
@@ -20,6 +20,9 @@
         <item name="colorOnSurface">@color/shade_secondary</item>
         <item name="android:colorBackground">@color/surface_high</item>
 
+    </style>
+    <style name="questionImageStyle">
+        <item name="android:radius">8dp</item>
     </style>
 
     <!-- Splash screen theme -->
@@ -107,13 +110,17 @@
     <style name="Label.Small">
         <item name="android:textSize">10sp</item>
         <item name="lineHeight">16sp</item>
-        <item name="android:fontFamily">@font/fredoka_one_medium</item>
+        <item name="android:fontFamily">@font/fredoka_one_regular</item>
     </style>
 
     <style name="Label.XSmall">
         <item name="android:textSize">10sp</item>
         <item name="lineHeight">14sp</item>
         <item name="android:fontFamily">@font/fredoka_regular</item>
+    </style>
+    <style name="background_card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="android:backgroundTint">@drawable/background_question_card</item>
     </style>
 
 
@@ -168,4 +175,12 @@
         <item name="android:background">#00000000</item>
     </style>
 
+
+    <style name="CustomCardShape" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSizeTopRight">30dp</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+    </style>
 </resources>

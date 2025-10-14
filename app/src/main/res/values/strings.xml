@@ -17,6 +17,9 @@
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
     <string name="flame_icon">Flame icon</string>
+    <string name="lives">lives</string>
+    <string name="points">Points</string>
+    <string name="awards">Awards</string>
     <string name="loading_game">Loading Game</string>
     <string name="no_connection">No Connection</string>
     <string name="oops_no_internet">Oops! It looks like you’re offline. Please check your internet connection to continue playing</string>
@@ -31,4 +34,56 @@
     <string name="second_arrow">second arrow</string>
     <string name="third_arrow">third arrow</string>
     <string name="swipe_image">Swipe image</string>
+
+    <!-- Category Titles -->
+    <string name="category_title_geography">Geography</string>
+    <string name="category_title_science">Science</string>
+    <string name="category_title_general_knowledge">General Knowledge</string>
+    <string name="category_title_music">Music</string>
+    <string name="category_title_film_tv">Film &amp; TV</string>
+    <string name="category_title_food_drink">Food &amp; Drink</string>
+    <string name="category_title_society_culture">Society &amp; Culture</string>
+    <string name="category_title_sport_leisure">Sport &amp; Leisure</string>
+    <string name="category_title_history">History</string>
+    <string name="category_title_arts_literature">Arts &amp; Literature</string>
+    <string name="card_background">card background</string>
+    <string name="character">Character</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="buy">Buy</string>
+    <string name="_1">1</string>
+    <string name="euqal">=</string>
+    <string name="_200">200</string>
+    <string name="buy_character">Buy Character</string>
+    <string name="_300x">300X</string>
+    <string name="lock_icon">lock icon</string>
+    <string name="rika">Rika</string>
+    <string name="age_12_sunblooms">Age: 12 Sunblooms</string>
+    <string name="description">Nature’s little explorer! Rika talks to mushrooms and swears squirrels give her battle advice. Always ready for an adventure.</string>
+    <string name="ok">Ok</string>
+    <string name="achievements">Achievements</string>
+    <string name="close_icon">close icon</string>
+    <string name="click_on_achievement_to_view_details">*Click on achievement to view details</string>
+    <string name="title">title</string>
+    <string name="collector">collector</string>
+    <string name="explorer">Explorer</string>
+    <string name="you_love_experimenting">You love experimenting and discovering! You\'ve tried several categories and aren\'t limited to just one. \n How to get: \n Play in at least 4 different categories.</string>
+    <string name="share_with_friends">Share with friends</string>
+    <string name="minus">-</string>
+    <string name="sound">Sound</string>
+    <string name="music">Music</string>
+    <string name="settings">Settings</string>
+    <string name="save_changes">Save changes</string>
+    <string name="discard">Discard</string>
+    <string name="heptagon_shape">heptagon shape</string>
+    <string name="difficulty_level">Difficulty level</string>
+    <string name="date_section_background">date section background</string>
+    <string name="game_time_icon">game time icon</string>
+    <string name="game_star_icon">game star icon</string>
+    <string name="game_coins_icon">game coins icon</string>
+    <string name="header_question">header_question</string>
+    <string name="question_image">question_image</string>
+    <string name="background_question_card">background_question_card</string>
+    <string name="left_corner">Left corner</string>
+    <string name="right_corner">Right corner</string>
 </resources>

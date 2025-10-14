@@ -21,10 +21,11 @@ data class QuestionDto(
 ) {
     fun toDomain(): Question? {
         if (question == null || correctAnswer == null || incorrectAnswers == null) return null
+        val answers = listOf(Answer(text = correctAnswer, isCorrect = true)) + incorrectAnswers.map { Answer(text = it, isCorrect = false) }
 
         return Question(
             question = question,
-            answers = listOf(Answer(text = correctAnswer, isCorrect = true)) + incorrectAnswers.map { Answer(text = it, isCorrect = false) }
+            answers = answers.shuffled()
         )
     }
 }

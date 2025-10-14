@@ -1,6 +1,7 @@
 package com.istanbul.qurio.ui.play
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +16,13 @@ import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BaseFragment
 import com.istanbul.qurio.ui.play.PlayPresenter.Companion.MAX_NUM_OF_QUESTIONS
 import com.istanbul.qurio.ui.play.adapter.AnswerAdapter
+import com.istanbul.qurio.ui.play.adapter.OnAnswerClickListener
 import javax.inject.Inject
 
-class PlayFragment: BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::inflate), PlayView {
+class PlayFragment: BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::inflate), PlayView,
+    OnAnswerClickListener {
     private lateinit var playPresenter: PlayPresenter
-    private var answerAdapter: AnswerAdapter = AnswerAdapter(listOf())
+    private var answerAdapter: AnswerAdapter = AnswerAdapter(listOf(), this)
     @Inject
     lateinit var triviaRepository: TriviaRepository
 
@@ -35,12 +38,15 @@ class PlayFragment: BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infla
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         playPresenter = PlayPresenter(this, triviaRepository)
+        binding.recyclerAnswerOptions.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerAnswerOptions.adapter = answerAdapter
+        binding.recyclerAnswerOptions.addItemDecoration(VerticalSpaceItemDecoration(12))
         playPresenter.getCoins()
         playPresenter.getQuiz(
             category = 10, // Entertainment: Books
             difficulty = "easy"
-        ) // TODO: get category and difficulty from navigation arguments
+        ) // TODO: get from arguments
+        initClickListeners()
     }
 
     override fun updateCoinsNumber(number: Int) {
@@ -53,29 +59,58 @@ class PlayFragment: BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infla
         binding.cardQuestion.numberOfQuestion.text =
             getString(R.string.question_formatted, index, MAX_NUM_OF_QUESTIONS)
         binding.cardQuestion.questionText.text = decodedText
-        binding.recyclerAnswerOptions.layoutManager = LinearLayoutManager(requireContext())
-        answerAdapter.submitList(question.answers)
-        binding.recyclerAnswerOptions.addItemDecoration(VerticalSpaceItemDecoration(12))
-
+        answerAdapter.setData(question.answers)
     }
 
     override fun markAnswerCorrect(answer: Answer) {
-        TODO("Not yet implemented")
+        Log.d("PlayFragment", "markAnswerCorrect: $answer")
+        answerAdapter.setData(answerAdapter.getList().toMutableList().map { if (it.text == answer.text) answer else it.copy(choiceStatus = Answer.ChoiceStatus.NotSelected, isCorrect = true) })
     }
 
     override fun markAnswerWrong(answer: Answer) {
-        TODO("Not yet implemented")
+        Log.d("PlayFragment", "markAnswerWrong: $answer")
+        answerAdapter.setData(answerAdapter.getList().toMutableList().map { if (it.text == answer.text) answer else it.copy(choiceStatus = Answer.ChoiceStatus.NotSelected, isCorrect = false) })
     }
 
     override fun markAnswerSelected(answer: Answer) {
-        TODO("Not yet implemented")
+        answerAdapter.setData(answerAdapter.getList().toMutableList().map { if (it.text == answer.text) answer else it.copy(choiceStatus = Answer.ChoiceStatus.NotSelected) })
+    }
+
+    override fun convertToNextButton() {
+        binding.buttonCheck.visibility = View.GONE
+        binding.buttonSkip.visibility = View.GONE
+        binding.buttonNext.visibility = View.VISIBLE
+    }
+
+    override fun convertToCheckButton() {
+        binding.buttonCheck.visibility = View.VISIBLE
+        binding.buttonSkip.visibility = View.VISIBLE
+        binding.buttonNext.visibility = View.GONE
+    }
+
+    private fun initClickListeners() {
+        binding.buttonCheck.setOnClickListener {
+            playPresenter.onCheckClick()
+        }
+
+        binding.buttonSkip.setOnClickListener {
+            playPresenter.onSkipClick()
+        }
+
+        binding.buttonNext.setOnClickListener {
+            playPresenter.onNextClick()
+        }
     }
 
     override fun showLoading() {
-        TODO("Not yet implemented")
+//        TODO("Not yet implemented")
     }
 
     override fun hideLoading() {
-        TODO("Not yet implemented")
+//        TODO("Not yet implemented")
+    }
+
+    override fun onAnswerClick(answer: Answer) {
+        playPresenter.onAnswerClick(answer)
     }
 }

@@ -10,4 +10,6 @@ interface PlayView: BaseView {
     fun markAnswerCorrect(answer: Answer)
     fun markAnswerWrong(answer: Answer)
     fun markAnswerSelected(answer: Answer)
+    fun convertToNextButton()
+    fun convertToCheckButton()
 }

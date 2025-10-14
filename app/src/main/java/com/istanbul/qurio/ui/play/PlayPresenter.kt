@@ -1,9 +1,11 @@
 package com.istanbul.qurio.ui.play
 
+import android.util.Log
 import com.istanbul.qurio.model.Answer
 import com.istanbul.qurio.model.Quiz
 import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BasePresenter
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -39,8 +41,9 @@ class PlayPresenter @Inject constructor(
                 quiz = triviaRepository.getQuiz(
                     category = category,
                     difficulty = difficulty
-
                 )
+                val newAnswers = quiz.questions.shuffled()
+                quiz = Quiz(newAnswers)
                 showCurrentQuestion()
                 view?.hideLoading()
             } catch (e: Exception) {
@@ -51,7 +54,7 @@ class PlayPresenter @Inject constructor(
 
     fun showCurrentQuestion() {
         if (currentQuestion <= MAX_NUM_OF_QUESTIONS) {
-            view?.showQuestion(quiz.questions[currentQuestion], currentQuestion)
+            view?.showQuestion(quiz.questions[currentQuestion - 1], currentQuestion)
             questionStatus = QuestionStatus.WAITING
         }
     }
@@ -65,61 +68,76 @@ class PlayPresenter @Inject constructor(
     }
 
     fun onAnswerClick(answer: Answer) {
-        when (questionStatus) {
-            is QuestionStatus.CHECKED -> {}
-            is QuestionStatus.SELECTED -> {
-                if (answer.text == (questionStatus as QuestionStatus.SELECTED).answer.text) {
-                    checkAnswer(answer)
-                } else {
-                    selectAnswer(answer)
-                }
-            }
-            QuestionStatus.WAITING -> {
+        if (questionStatus == QuestionStatus.WAITING || questionStatus is QuestionStatus.SELECTED) {
+            if (answer.choiceStatus == Answer.ChoiceStatus.NotSelected) {
                 selectAnswer(answer)
             }
         }
     }
 
-    private fun checkAnswer(answer: Answer) {
-        if (answer.isCorrect) {
-            view?.markAnswerCorrect(answer)
-            currentScore++
-        } else {
-            view?.markAnswerWrong(answer)
-        }
-        questionStatus = QuestionStatus.CHECKED(answer.isCorrect)
-        startMovingToNextQuestion()
-    }
-
-    private fun startMovingToNextQuestion() {
-        TODO("Not yet implemented")
-    }
-
     private fun selectAnswer(answer: Answer) {
         questionStatus = QuestionStatus.SELECTED(answer)
-        view?.markAnswerSelected(answer)
+        view?.markAnswerSelected(answer.copy(choiceStatus = Answer.ChoiceStatus.Selected))
     }
 
     fun onCheckClick() {
-        TODO("Not yet implemented")
+        if (questionStatus is QuestionStatus.SELECTED) {
+            val answer = (questionStatus as QuestionStatus.SELECTED).answer
+            checkAnswer(answer)
+        }
+    }
+
+    private fun checkAnswer(answer: Answer) {
+        if (answer.isCorrect) {
+            view?.markAnswerCorrect(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
+            currentScore++
+        } else {
+            view?.markAnswerWrong(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
+        }
+        questionStatus = QuestionStatus.CHECKED(answer.isCorrect)
+        convertToNextView()
+    }
+
+    private fun convertToNextView() {
+        view?.convertToNextButton()
     }
 
     fun onSkipClick() {
-        TODO("Not yet implemented")
+        navigateToNext()
     }
 
     fun onNextClick() {
-        TODO("Not yet implemented")
+        navigateToNext()
     }
 
     private fun handleException(e: Exception) {
-        TODO("Not yet implemented")
+//        TODO("Not yet implemented")
+        Log.e("PlayPresenter", "handleException: $e")
+    }
+
+    private fun navigateToNext() {
+        if (currentQuestion < MAX_NUM_OF_QUESTIONS) {
+            currentQuestion++
+            showCurrentQuestion()
+            reset()
+        } else {
+            goToResult()
+        }
+    }
+
+    private fun reset() {
+        view?.convertToCheckButton()
+        questionStatus = QuestionStatus.WAITING
+    }
+
+    private fun goToResult() {
+//        TODO("Not yet implemented")
     }
 
     sealed interface QuestionStatus {
-        data object WAITING: QuestionStatus
-        data class SELECTED(val answer: Answer): QuestionStatus
-        data class CHECKED(val win: Boolean): QuestionStatus
+        data object WAITING : QuestionStatus
+        data class SELECTED(val answer: Answer) : QuestionStatus
+        data class CHECKED(val win: Boolean) : QuestionStatus
     }
 
     companion object {

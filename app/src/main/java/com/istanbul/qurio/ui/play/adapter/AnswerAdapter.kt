@@ -2,15 +2,15 @@ package com.istanbul.qurio.ui.play.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.istanbul.qurio.R
 import com.istanbul.qurio.databinding.ItemOptionBinding
 import com.istanbul.qurio.model.Answer
 
-class AnswerAdapter(private val answers: List<Answer>) :
-    ListAdapter<Answer, AnswerAdapter.AnswerViewHolder>(AnswerDiffCallback()) {
+class AnswerAdapter(private var answers: List<Answer>, private val onAnswerClickListener: OnAnswerClickListener) :
+    RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder>() {
 
     inner class AnswerViewHolder(val binding: ItemOptionBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -35,7 +35,9 @@ class AnswerAdapter(private val answers: List<Answer>) :
         val answer = answers[position]
         val itemBinding = holder.binding
 
-        itemBinding.textAnswer.text = answer.text
+        val decodedText = HtmlCompat.fromHtml(answer.text, HtmlCompat.FROM_HTML_MODE_LEGACY)
+
+        itemBinding.textAnswer.text = decodedText
 
         when (answer.choiceStatus) {
             Answer.ChoiceStatus.NotSelected -> {
@@ -45,22 +47,61 @@ class AnswerAdapter(private val answers: List<Answer>) :
                 itemBinding.textAnswer.setBackgroundResource(R.drawable.item_answer_background_selected)
             }
             Answer.ChoiceStatus.Chosen -> {
-                itemBinding.textAnswer.setBackgroundResource(R.drawable.item_answer_background_chosen)
                 if (answer.isCorrect) {
-                    itemBinding.textAnswer.setBackgroundColor(holder.itemView.context.getColor(R.color.green))
+                    itemBinding.textAnswer.setBackgroundResource(R.drawable.item_answer_background_chosen_correct)
                 } else {
-                    itemBinding.textAnswer.setBackgroundColor(holder.itemView.context.getColor(R.color.red))
+                    itemBinding.textAnswer.setBackgroundResource(R.drawable.item_answer_background_chosen_wrong)
                 }
             }
         }
+
+        itemBinding.textAnswer.setOnClickListener {
+            onAnswerClickListener.onAnswerClick(answer)
+        }
+    }
+
+    fun setData(newList: List<Answer>) {
+        val diffResult = DiffUtil.calculateDiff(AnswerDiffCallback(answers, newList))
+
+        answers = newList
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+    fun getList(): List<Answer> {
+        return answers
     }
 
     override fun getItemCount(): Int = answers.size
 }
 
 
-class AnswerDiffCallback : DiffUtil.ItemCallback<Answer>() {
-    override fun areItemsTheSame(oldItem: Answer, newItem: Answer) = oldItem.text == newItem.text
+class AnswerDiffCallback(
+    private val oldList: List<Answer>,
+    private val newList: List<Answer>
+): DiffUtil.Callback() {
+        override fun getOldListSize() = oldList.size
 
-    override fun areContentsTheSame(oldItem: Answer, newItem: Answer) = oldItem == newItem
+    override fun getNewListSize() = newList.size
+
+    override fun areItemsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int
+    ): Boolean {
+        val oldItem = oldList[oldItemPosition]
+        val newItem = newList[newItemPosition]
+        return oldItem.text == newItem.text
+    }
+
+    override fun areContentsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int
+    ): Boolean {
+        val oldItem = oldList[oldItemPosition]
+        val newItem = newList[newItemPosition]
+        return oldItem == newItem
+    }
+}
+
+interface OnAnswerClickListener {
+    fun onAnswerClick(answer: Answer)
 }

@@ -36,12 +36,14 @@ class PlayPresenter @Inject constructor(
     ) {
         coroutineScope.launch {
             try {
+                view?.showLoading()
                 quiz = triviaRepository.getQuiz(
                     category = category,
                     difficulty = difficulty
 
                 )
                 showCurrentQuestion()
+                view?.hideLoading()
             } catch (e: Exception) {
                 handleException(e)
             }

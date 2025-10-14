@@ -89,4 +89,16 @@
     <string name="background_question_card">بطاقة_سؤال_الخلفية</string>
     <string name="left_corner">الركن الأيسر</string>
     <string name="right_corner">الركن الأيمن</string>
+
+    <string name="onboarding_title_1">مرحبًا بك في Qurio</string>
+    <string name="onboarding_desc_1">مرحبًا بك في عالم Qurio، حيث تُشعل الأسئلة فضولك وتنتظرك الجوائز الأذكى. هل أنت مستعد لبدء التحدي؟</string>
+
+    <string name="onboarding_title_2">اختر شخصيتك</string>
+    <string name="onboarding_desc_2">لكل بطل أسلوبه الفريد! اختر من بين شخصيات مميزة وابدأ مغامرتك بطريقتك الخاصة.</string>
+
+    <string name="onboarding_title_3">تحدَّ وفُز</string>
+    <string name="onboarding_desc_3">أجب بسرعة، اربح النقاط، وشارك أصدقاءك! كل فئة من الأسئلة تجربة جديدة بانتظارك.</string>
+
+    <string name="onboarding_title_4">اجمعهم جميعًا!</string>
+    <string name="onboarding_desc_4">افتح شخصيات جديدة، احصل على الأوسمة، وتسلق قوائم المتصدرين. Qurio لا يرحم، لكنك بالتأكيد تستطيع التفوق!</string>
 </resources>

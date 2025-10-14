@@ -4,9 +4,6 @@ import com.istanbul.qurio.model.Answer
 import com.istanbul.qurio.model.Quiz
 import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BasePresenter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,6 +13,8 @@ class PlayPresenter @Inject constructor(
 ) : BasePresenter<PlayView>() {
     private lateinit var quiz: Quiz
     private var currentQuestion: Int = 1
+    private var currentScore: Int = 0
+    private var questionStatus: QuestionStatus = QuestionStatus.WAITING
 
     init {
         attachView(playView)
@@ -51,6 +50,7 @@ class PlayPresenter @Inject constructor(
     fun showCurrentQuestion() {
         if (currentQuestion <= MAX_NUM_OF_QUESTIONS) {
             view?.showQuestion(quiz.questions[currentQuestion], currentQuestion)
+            questionStatus = QuestionStatus.WAITING
         }
     }
 
@@ -63,7 +63,39 @@ class PlayPresenter @Inject constructor(
     }
 
     fun onAnswerClick(answer: Answer) {
+        when (questionStatus) {
+            is QuestionStatus.CHECKED -> {}
+            is QuestionStatus.SELECTED -> {
+                if (answer.text == (questionStatus as QuestionStatus.SELECTED).answer.text) {
+                    checkAnswer(answer)
+                } else {
+                    selectAnswer(answer)
+                }
+            }
+            QuestionStatus.WAITING -> {
+                selectAnswer(answer)
+            }
+        }
+    }
+
+    private fun checkAnswer(answer: Answer) {
+        if (answer.isCorrect) {
+            view?.markAnswerCorrect(answer)
+            currentScore++
+        } else {
+            view?.markAnswerWrong(answer)
+        }
+        questionStatus = QuestionStatus.CHECKED(answer.isCorrect)
+        startMovingToNextQuestion()
+    }
+
+    private fun startMovingToNextQuestion() {
         TODO("Not yet implemented")
+    }
+
+    private fun selectAnswer(answer: Answer) {
+        questionStatus = QuestionStatus.SELECTED(answer)
+        view?.markAnswerSelected(answer)
     }
 
     fun onCheckClick() {
@@ -80,6 +112,12 @@ class PlayPresenter @Inject constructor(
 
     private fun handleException(e: Exception) {
         TODO("Not yet implemented")
+    }
+
+    sealed interface QuestionStatus {
+        data object WAITING: QuestionStatus
+        data class SELECTED(val answer: Answer): QuestionStatus
+        data class CHECKED(val win: Boolean): QuestionStatus
     }
 
     companion object {

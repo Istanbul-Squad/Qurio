@@ -2,13 +2,15 @@ package com.istanbul.qurio.ui.play.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.istanbul.qurio.R
 import com.istanbul.qurio.databinding.ItemOptionBinding
 import com.istanbul.qurio.model.Answer
 
 class AnswerAdapter(private val answers: List<Answer>) :
-    RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder>() {
+    ListAdapter<Answer, AnswerAdapter.AnswerViewHolder>(AnswerDiffCallback()) {
 
     inner class AnswerViewHolder(val binding: ItemOptionBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -54,4 +56,11 @@ class AnswerAdapter(private val answers: List<Answer>) :
     }
 
     override fun getItemCount(): Int = answers.size
+}
+
+
+class AnswerDiffCallback : DiffUtil.ItemCallback<Answer>() {
+    override fun areItemsTheSame(oldItem: Answer, newItem: Answer) = oldItem.text == newItem.text
+
+    override fun areContentsTheSame(oldItem: Answer, newItem: Answer) = oldItem == newItem
 }

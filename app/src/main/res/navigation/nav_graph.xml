@@ -13,10 +13,36 @@
         <action
             android:id="@+id/action_fragmentA_to_fragmentB"
             app:destination="@id/fragmentB" />
+        <action
+            android:id="@+id/action_fragmentA_to_playFragment"
+            app:destination="@id/playFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragmentB"
         android:name="com.istanbul.qurio.ui.FragmentB"
         android:label="fragment_b"
         tools:layout="@layout/fragment_b" />
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.istanbul.qurio.ui.play.PlayFragment"
+        android:label="PlayFragment" >
+        <action
+            android:id="@+id/action_playFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.istanbul.qurio.ui.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="correctAnswersCount"
+            app:argType="integer" />
+        <argument
+            android:name="inCorrectAnswersCount"
+            app:argType="integer" />
+        <argument
+            android:name="skippedAnswersCount"
+            app:argType="integer" />
+    </fragment>
 </navigation>

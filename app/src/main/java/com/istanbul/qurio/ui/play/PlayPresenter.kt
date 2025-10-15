@@ -5,7 +5,6 @@ import com.istanbul.qurio.model.Answer
 import com.istanbul.qurio.model.Quiz
 import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BasePresenter
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -13,41 +12,40 @@ class PlayPresenter @Inject constructor(
     playView: PlayView,
     private val triviaRepository: TriviaRepository
 ) : BasePresenter<PlayView>() {
+
     private lateinit var quiz: Quiz
     private var currentQuestion: Int = 1
     private var currentScore: Int = 0
     private var questionStatus: QuestionStatus = QuestionStatus.WAITING
+    private var skippedAnswersCount: Int = 0
 
     init {
         attachView(playView)
     }
 
-    fun onBackClick() {
-        TODO("Not yet implemented")
-    }
-
     fun getCoins() {
-        val coins = 5 // TODO: get coins from repository
+        val coins = 5 // TODO: replace with repository logic
         view?.updateCoinsNumber(coins)
     }
 
-    fun getQuiz(
-        category: Int,
-        difficulty: String
-    ) {
+    fun getQuiz(category: Int, difficulty: String) {
         coroutineScope.launch {
             try {
                 view?.showLoading()
+
                 quiz = triviaRepository.getQuiz(
                     category = category,
                     difficulty = difficulty
                 )
+
                 val newAnswers = quiz.questions.shuffled()
                 quiz = Quiz(newAnswers)
+
                 showCurrentQuestion()
-                view?.hideLoading()
             } catch (e: Exception) {
                 handleException(e)
+            } finally {
+                view?.hideLoading()
             }
         }
     }
@@ -59,12 +57,23 @@ class PlayPresenter @Inject constructor(
         }
     }
 
-    fun startTimer() {
-        TODO("Not yet implemented")
-    }
+    fun onTimeFinished() {
+        if (questionStatus !is QuestionStatus.CHECKED) {
+            val question = quiz.questions[currentQuestion - 1]
 
-    fun onTimerFinished() {
-        TODO("Not yet implemented")
+            val wrongAnswer = Answer(
+                text = question.question,
+                isCorrect = false,
+                skipped = false
+            )
+            view?.markAnswerWrong(wrongAnswer)
+            questionStatus = QuestionStatus.CHECKED(false)
+
+            coroutineScope.launch {
+                kotlinx.coroutines.delay(500)
+                navigateToNext()
+            }
+        }
     }
 
     fun onAnswerClick(answer: Answer) {
@@ -88,12 +97,20 @@ class PlayPresenter @Inject constructor(
     }
 
     private fun checkAnswer(answer: Answer) {
-        if (answer.isCorrect) {
-            view?.markAnswerCorrect(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
-            currentScore++
-        } else {
-            view?.markAnswerWrong(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
+
+        view?.stopTimer()
+
+        when {
+            answer.isCorrect -> {
+                currentScore++
+                view?.markAnswerCorrect(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
+            }
+
+            else -> {
+                view?.markAnswerWrong(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
+            }
         }
+
         questionStatus = QuestionStatus.CHECKED(answer.isCorrect)
         convertToNextView()
     }
@@ -103,16 +120,26 @@ class PlayPresenter @Inject constructor(
     }
 
     fun onSkipClick() {
-        navigateToNext()
+        if (questionStatus !is QuestionStatus.CHECKED) {
+
+            view?.stopTimer()
+            skippedAnswersCount++
+
+            val question = quiz.questions[currentQuestion - 1]
+            val skippedAnswer = Answer(
+                text = question.question,
+                isCorrect = false,
+                skipped = true
+            )
+
+            view?.markAnswerSkipped(skippedAnswer)
+            questionStatus = QuestionStatus.CHECKED(false)
+            navigateToNext()
+        }
     }
 
     fun onNextClick() {
         navigateToNext()
-    }
-
-    private fun handleException(e: Exception) {
-//        TODO("Not yet implemented")
-        Log.e("PlayPresenter", "handleException: $e")
     }
 
     private fun navigateToNext() {
@@ -131,7 +158,19 @@ class PlayPresenter @Inject constructor(
     }
 
     private fun goToResult() {
-//        TODO("Not yet implemented")
+        val incorrectCount =
+            MAX_NUM_OF_QUESTIONS - currentScore - skippedAnswersCount
+
+        view?.goToResult(
+            correctAnswersCount = currentScore,
+            inCorrectAnswersCount = incorrectCount,
+            skippedAnswersCount = skippedAnswersCount
+        )
+    }
+
+    private fun handleException(e: Exception) {
+        Log.e("PlayPresenter", "handleException: ${e.message}", e)
+        view?.hideLoading()
     }
 
     sealed interface QuestionStatus {

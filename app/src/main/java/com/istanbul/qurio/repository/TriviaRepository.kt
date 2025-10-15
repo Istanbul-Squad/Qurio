@@ -1,6 +1,7 @@
 package com.istanbul.qurio.repository
 
 import com.istanbul.qurio.model.Quiz
+import com.istanbul.qurio.model.QuizResult
 
 
 interface TriviaRepository {
@@ -8,4 +9,6 @@ interface TriviaRepository {
         category: Int,
         difficulty: String,
     ): Quiz
+
+    suspend fun insertQuizResult(quizResult: QuizResult)
 }

@@ -9,7 +9,11 @@ interface PlayView: BaseView {
     fun showQuestion(question: Question, index: Int)
     fun markAnswerCorrect(answer: Answer)
     fun markAnswerWrong(answer: Answer)
+    fun markAnswerSkipped(answer: Answer)
     fun markAnswerSelected(answer: Answer)
     fun convertToNextButton()
     fun convertToCheckButton()
+    fun goToResult(correctAnswersCount: Int, inCorrectAnswersCount: Int, skippedAnswersCount: Int)
+    fun startTimer()
+    fun stopTimer()
 }

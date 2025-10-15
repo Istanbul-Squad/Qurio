@@ -1,7 +1,6 @@
 package com.istanbul.qurio.ui.base
 
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -11,7 +10,7 @@ import kotlinx.coroutines.launch
 
 abstract class BasePresenter<V : BaseView> {
     private val job = SupervisorJob()
-    protected val coroutineScope = CoroutineScope(Dispatchers.Main + job)
+    val coroutineScope = CoroutineScope(Dispatchers.Main + job)
 
     protected var view: V? = null
         private set
@@ -31,23 +30,23 @@ abstract class BasePresenter<V : BaseView> {
 
     protected fun <T> tryToExecute(
         execute: suspend () -> T,
-        onSuccess: ((T) -> Unit) = {},
-        onError: (Throwable) -> Unit = {},
+        onSuccess: suspend (T) -> Unit = {},
+        onError: suspend (Throwable) -> Unit = {},
         onStart: suspend () -> Unit = {},
-        onFinally: () -> Unit = {},
+        onFinally: suspend () -> Unit = {},
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
     ): Job {
-        val handler = CoroutineExceptionHandler { _, throwable ->
-            onError(
-                throwable
-            )
-        }
-        return CoroutineScope(dispatcher + job + handler).launch {
-            onStart()
-            runCatching { execute() }
-                .onSuccess(onSuccess)
-                .onFailure(onError)
-            onFinally()
+
+        return CoroutineScope(dispatcher + job).launch {
+            try {
+                onStart()
+                val result = execute()
+                onSuccess(result)
+            } catch (e: Throwable) {
+                onError(e)
+            } finally {
+                onFinally()
+            }
         }
     }
 }

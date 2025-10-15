@@ -80,7 +80,7 @@
     <string name="background_question_card">بطاقة_سؤال_الخلفية</string>
     <string name="left_corner">الركن الأيسر</string>
     <string name="right_corner">الركن الأيمن</string>
-    <string name="ic_locked">مغلق او غير متاح</string>
+    <string name="ic_locked">غير متاح</string>
     <string name="ic_coin">نقود</string>
     <string name="ic_correct">علامة صح</string>
 </resources>

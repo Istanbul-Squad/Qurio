@@ -188,14 +188,6 @@ class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infl
         findNavController().navigate(action)
     }
 
-    override fun showLoading() {
-        // TODO("Not yet implemented")
-    }
-
-    override fun hideLoading() {
-        // TODO("Not yet implemented")
-    }
-
     override fun onAnswerClick(answer: Answer) {
         playPresenter.onAnswerClick(answer)
     }

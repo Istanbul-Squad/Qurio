@@ -40,11 +40,9 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(FragmentResultBinding
             triviaRepository = triviaRepository
         )
 
-        binding.result.textScoreCorrectValue.text = args.correctAnswersCount.toString()
-        binding.result.textScoreIncorrectValue.text = args.inCorrectAnswersCount.toString()
-        binding.result.textScoreSkippedValue.text = args.skippedAnswersCount.toString()
+        setupViews()
 
-        val summary = calculateResultSummary(
+        val summary = resultPresenter.calculateResultSummary(
             correct = args.correctAnswersCount,
             incorrect = args.inCorrectAnswersCount,
             skipped = args.skippedAnswersCount
@@ -52,6 +50,10 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(FragmentResultBinding
 
         displayResultSummary(summary)
 
+        insertResult(summary)
+    }
+
+    private fun insertResult(summary: ResultSummary) {
         resultPresenter.insertQuizResult(
             QuizResult(
                 correctAnswers = args.correctAnswersCount,
@@ -62,34 +64,10 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(FragmentResultBinding
         )
     }
 
-    private fun calculateResultSummary(
-        correct: Int,
-        incorrect: Int,
-        skipped: Int
-    ): ResultSummary {
-        val totalQuestions = correct + incorrect + skipped
-
-        var score = correct * 10 - incorrect * 2
-        if (score < 0) score = 0
-
-        val correctPercentage = if (totalQuestions > 0) {
-            (correct * 100) / totalQuestions
-        } else 0
-
-        val stars = when {
-            correctPercentage == 100 -> 3
-            correctPercentage >= 80 -> 2
-            correctPercentage >= 50 -> 1
-            else -> 0
-        }
-
-        val reward = (score / 2) + (stars * 5)
-
-        return ResultSummary(
-            score = score,
-            stars = stars,
-            reward = reward
-        )
+    private fun setupViews() {
+        binding.result.textScoreCorrectValue.text = args.correctAnswersCount.toString()
+        binding.result.textScoreIncorrectValue.text = args.inCorrectAnswersCount.toString()
+        binding.result.textScoreSkippedValue.text = args.skippedAnswersCount.toString()
     }
 
     private fun displayResultSummary(summary: ResultSummary) {

@@ -79,6 +79,9 @@
     <string name="games">Games</string>
     <string name="last_games">Last Games</string>
     <string name="all">All</string>
+    <string name="ic_locked">ic_locked</string>
+    <string name="ic_coin">ic_coin</string>
+    <string name="ic_correct">ic_correct</string>
     <string name="back">back</string>
     <string name="coin">coin</string>
     <string name="check">Check</string>

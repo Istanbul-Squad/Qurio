@@ -80,4 +80,7 @@
     <string name="background_question_card">بطاقة_سؤال_الخلفية</string>
     <string name="left_corner">الركن الأيسر</string>
     <string name="right_corner">الركن الأيمن</string>
+    <string name="games">الألعاب</string>
+    <string name="last_games">آخر الألعاب</string>
+    <string name="all">الكل</string>
 </resources>

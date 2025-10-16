@@ -76,4 +76,7 @@
     <string name="background_question_card">background_question_card</string>
     <string name="left_corner">Left corner</string>
     <string name="right_corner">Right corner</string>
+    <string name="games">Games</string>
+    <string name="last_games">Last Games</string>
+    <string name="all">All</string>
 </resources>

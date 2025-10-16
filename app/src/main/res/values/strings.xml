@@ -24,6 +24,16 @@
     <string name="no_connection">No Connection</string>
     <string name="oops_no_internet">Oops! It looks like you’re offline. Please check your internet connection to continue playing</string>
     <string name="retry">Retry</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboarding_image">onboarding Image</string>
+    <string name="swipe_up_to_play">Swipe up to PLAY!</string>
+    <string name="arrow_left_icon">arrow left icon</string>
+    <string name="arrow_right_icon">arrow right icon</string>
+    <string name="first_arrow">first arrow</string>
+    <string name="second_arrow">second arrow</string>
+    <string name="third_arrow">third arrow</string>
+    <string name="swipe_image">Swipe image</string>
 
     <!-- Category Titles -->
     <string name="category_title_geography">Geography</string>
@@ -76,6 +86,18 @@
     <string name="background_question_card">background_question_card</string>
     <string name="left_corner">Left corner</string>
     <string name="right_corner">Right corner</string>
+
+    <string name="onboarding_title_1">Welcome to Qurio</string>
+    <string name="onboarding_desc_1">Welcome to the world of Qurio, where questions spark curiosity and prizes await the smartest. Ready to begin the challenge?</string>
+
+    <string name="onboarding_title_2">Choose your character</string>
+    <string name="onboarding_desc_2">Each hero has their own unique style! Choose from unique characters and start your adventure in your own style.</string>
+
+    <string name="onboarding_title_3">Challenge and win</string>
+    <string name="onboarding_desc_3">Answer quickly, earn points, and share with your friends! Each trivia category is a new experience.</string>
+
+    <string name="onboarding_title_4">Collect them all!</string>
+    <string name="onboarding_desc_4">Unlock characters, earn badges, and climb the leaderboards. Qurio is merciless, but you can handle it.</string>
     <string name="ic_locked">ic_locked</string>
     <string name="ic_coin">ic_coin</string>
     <string name="ic_correct">ic_correct</string>

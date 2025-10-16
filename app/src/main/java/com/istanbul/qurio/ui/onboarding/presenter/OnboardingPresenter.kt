@@ -5,13 +5,16 @@ import com.istanbul.qurio.ui.base.BasePresenter
 import com.istanbul.qurio.model.OnboardingPage
 import com.istanbul.qurio.ui.onboarding.view.OnboardingView
 
-class OnboardingPresenter : BasePresenter<OnboardingView>() {
+class OnboardingPresenter(
+    onboardingView: OnboardingView
+) : BasePresenter<OnboardingView>() {
     private var currentIndex = 0
 
     private val pages = getOnboardingData()
 
 
-    fun start() {
+    init {
+        attachView(onboardingView)
         showCurrentPage()
     }
 

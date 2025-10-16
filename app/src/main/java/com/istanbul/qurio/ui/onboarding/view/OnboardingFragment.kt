@@ -42,9 +42,8 @@ class OnboardingFragment :
 
         swipImageMotion()
 
-        onboardingPresenter = OnboardingPresenter()
-        onboardingPresenter.attachView(this)
-        onboardingPresenter.start()
+        onboardingPresenter = OnboardingPresenter(this)
+
 
         binding.nextPageIcon.setOnClickListener { onboardingPresenter.onNextClick() }
 
@@ -141,9 +140,4 @@ class OnboardingFragment :
     override fun showLoading() {}
 
     override fun hideLoading() {}
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        onboardingPresenter.detachView()
-    }
 }

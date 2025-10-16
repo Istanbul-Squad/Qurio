@@ -98,4 +98,11 @@
 
     <string name="onboarding_title_4">Collect them all!</string>
     <string name="onboarding_desc_4">Unlock characters, earn badges, and climb the leaderboards. Qurio is merciless, but you can handle it.</string>
+    <string name="back">back</string>
+    <string name="coin">coin</string>
+    <string name="check">Check</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="question_formatted">Q %1$d/%2$d</string>
+    <string name="seconds_left">%1$d sec</string>
 </resources>

@@ -32,6 +32,7 @@
         <action
             android:id="@+id/action_onboardingFragment_to_fragmentA"
             app:destination="@id/fragmentA" />
+    </fragment>
     <fragment
         android:id="@+id/playFragment"
         android:name="com.istanbul.qurio.ui.play.PlayFragment"

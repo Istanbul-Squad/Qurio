@@ -98,6 +98,9 @@
 
     <string name="onboarding_title_4">Collect them all!</string>
     <string name="onboarding_desc_4">Unlock characters, earn badges, and climb the leaderboards. Qurio is merciless, but you can handle it.</string>
+    <string name="ic_locked">ic_locked</string>
+    <string name="ic_coin">ic_coin</string>
+    <string name="ic_correct">ic_correct</string>
     <string name="back">back</string>
     <string name="coin">coin</string>
     <string name="check">Check</string>

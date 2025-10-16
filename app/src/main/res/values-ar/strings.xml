@@ -101,6 +101,9 @@
 
     <string name="onboarding_title_4">اجمعهم جميعًا!</string>
     <string name="onboarding_desc_4">افتح شخصيات جديدة، احصل على الأوسمة، وتسلق قوائم المتصدرين. Qurio لا يرحم، لكنك بالتأكيد تستطيع التفوق!</string>
+    <string name="ic_locked">غير متاح</string>
+    <string name="ic_coin">نقود</string>
+    <string name="ic_correct">علامة صح</string>
     <string name="back">رجوع</string>
     <string name="coin">عملة</string>
     <string name="check">تحقق</string>

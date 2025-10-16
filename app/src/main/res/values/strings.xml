@@ -79,4 +79,11 @@
     <string name="ic_locked">ic_locked</string>
     <string name="ic_coin">ic_coin</string>
     <string name="ic_correct">ic_correct</string>
+    <string name="back">back</string>
+    <string name="coin">coin</string>
+    <string name="check">Check</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="question_formatted">Q %1$d/%2$d</string>
+    <string name="seconds_left">%1$d sec</string>
 </resources>

@@ -82,7 +82,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/setting_icon"
-        android:src="@drawable/ic_coin"
+        android:src="@drawable/im_coin"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/points_textview"

@@ -183,4 +183,11 @@
         <item name="cornerSizeBottomRight">20dp</item>
         <item name="cornerSizeBottomLeft">20dp</item>
     </style>
+    <style name="ShapeAppearance.App.CharacterCard" parent="">
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerSizeTopLeft">2dp</item>
+    </style>
+
 </resources>

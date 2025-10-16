@@ -76,6 +76,9 @@
     <string name="background_question_card">background_question_card</string>
     <string name="left_corner">Left corner</string>
     <string name="right_corner">Right corner</string>
+    <string name="ic_locked">ic_locked</string>
+    <string name="ic_coin">ic_coin</string>
+    <string name="ic_correct">ic_correct</string>
     <string name="back">back</string>
     <string name="coin">coin</string>
     <string name="check">Check</string>

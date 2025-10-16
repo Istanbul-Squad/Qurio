@@ -1,0 +1,5 @@
+package com.istanbul.qurio.model
+
+data class Quiz(
+    val questions: List<Question>
+)

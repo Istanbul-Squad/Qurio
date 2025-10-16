@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.androidx.navigation.safeargs)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -64,4 +65,9 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.kotlinx.serialization.json)
+
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.room.compiler)
 }

@@ -24,4 +24,6 @@ interface TriviaRepository {
     suspend fun getUser(): UserEntity
 
     suspend fun updateUser(user: UserEntity)
+
+    suspend fun getAllResults(): List<QuizResult>
 }

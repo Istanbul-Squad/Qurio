@@ -9,7 +9,6 @@ import javax.inject.Inject
 
 class HomePresenter @Inject constructor(
     private val triviaRepository: TriviaRepository,
-    private val quizDao: QuizDao,
     view: HomeView
 ) : BasePresenter<HomeView>() {
 
@@ -21,7 +20,7 @@ class HomePresenter @Inject constructor(
         tryToExecute(
             execute = {
                 val games = triviaRepository.getGames()
-                val results = quizDao.getAllResults().take(10)
+                val results = triviaRepository.getAllResults().take(10)
                 Pair(games, results)
             },
             onSuccess = { (games, results) ->

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.istanbul.qurio.QurioApplication
 import com.istanbul.qurio.R
-import com.istanbul.qurio.database.QuizDao
 import com.istanbul.qurio.databinding.FragmentHomeBinding
 import com.istanbul.qurio.model.QuizResult
 import com.istanbul.qurio.model.UserEntity
@@ -28,9 +27,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     @Inject
     lateinit var triviaRepository: TriviaRepository
-
-    @Inject
-    lateinit var quizDao: QuizDao
 
     private lateinit var presenter: HomePresenter
     private lateinit var gameAdapter: GameAdapter
@@ -120,7 +116,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setupPresenter() {
-        presenter = HomePresenter(triviaRepository, quizDao, this)
+        presenter = HomePresenter(triviaRepository, this)
     }
 
     private fun setupListeners() = with(binding) {

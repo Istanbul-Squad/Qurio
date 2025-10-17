@@ -67,4 +67,8 @@ class TriviaRepositoryImpl @Inject constructor(
     override suspend fun updateUser(user: UserEntity) {
         userDao.insertOrUpdate(user)
     }
+
+    override suspend fun getAllResults(): List<QuizResult> {
+        return quizResultDao.getAllResults()
+    }
 }

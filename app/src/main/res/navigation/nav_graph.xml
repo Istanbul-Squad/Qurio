@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/onboardingFragment">
-    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/fragmentA"
@@ -31,8 +30,8 @@
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
-            android:id="@+id/action_onboardingFragment_to_fragmentA"
-            app:destination="@id/fragmentA" />
+            android:id="@+id/action_onboardingFragment_to_fragmentHome"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment

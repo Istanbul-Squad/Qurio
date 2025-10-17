@@ -133,7 +133,7 @@ class OnboardingFragment :
             .setPopUpTo(R.id.onboardingFragment, true)
             .build()
 
-        val action = OnboardingFragmentDirections.actionOnboardingFragmentToFragmentA() //TODO will changed to home screen when finished
+        val action = OnboardingFragmentDirections.actionOnboardingFragmentToFragmentHome()
         findNavController().navigate(action,navOptions)
     }
 

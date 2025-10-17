@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.room.Room
 import com.istanbul.qurio.database.AppDatabase
 import com.istanbul.qurio.database.QuizDao
+import com.istanbul.qurio.database.UserDao
+import com.istanbul.qurio.database.UserStatisticsDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -24,4 +26,10 @@ class DatabaseModule{
     fun provideQuizDao(database: AppDatabase): QuizDao {
         return database.quizDao()
     }
+
+    @Provides
+    fun provideUserStatisticsDao(database: AppDatabase): UserStatisticsDao = database.userStatisticsDao()
+
+    @Provides
+    fun provideUserDao(database: AppDatabase): UserDao = database.userDao()
 }

@@ -16,4 +16,5 @@ interface PlayView: BaseView {
     fun goToResult(correctAnswersCount: Int, inCorrectAnswersCount: Int, skippedAnswersCount: Int)
     fun startTimer()
     fun stopTimer()
+    fun showBuyLifeDialog()
 }

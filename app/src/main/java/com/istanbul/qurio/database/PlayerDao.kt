@@ -12,8 +12,8 @@ interface PlayerDao {
     @Query("SELECT * FROM player LIMIT 1")
     suspend fun getPlayer(): Player?
 
-    @Query("UPDATE player SET lives = lives + 1, coins = 200 - :coins")
-    suspend fun buyLife(coins: Int)
+    @Query("UPDATE player SET lives = lives + 1, coins = coins - 200")
+    suspend fun buyLife()
 
     @Query("UPDATE player SET lives = lives - 1 WHERE lives > 0")
     suspend fun loseLife()

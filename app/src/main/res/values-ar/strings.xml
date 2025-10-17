@@ -26,6 +26,15 @@
     <string name="no_connection">لا يوجد اتصال</string>
     <string name="oops_no_internet">يبدو انه انقطع الاتصال. من فضلك تأكد من الانترنت قبل اكمال اللعب</string>
     <string name="retry">اعادة التحميل</string>
+    <string name="onboarding_image">صورة الترحيب</string>
+    <string name="swipe_up_to_play">اسحب للأعلى لبدء اللعب!</string>
+    <string name="arrow_left_icon">أيقونة السهم الأيسر</string>
+    <string name="arrow_right_icon">أيقونة السهم الأيمن</string>
+    <string name="first_arrow">السهم الأول</string>
+    <string name="second_arrow">السهم الثاني</string>
+    <string name="third_arrow">السهم الثالث</string>
+    <string name="swipe_image">صورة السحب</string>
+
 
     <!-- Category Titles -->
     <string name="category_title_geography">جغرافيا</string>
@@ -83,6 +92,18 @@
     <string name="games">الألعاب</string>
     <string name="last_games">آخر الألعاب</string>
     <string name="all">الكل</string>
+
+    <string name="onboarding_title_1">مرحبًا بك في Qurio</string>
+    <string name="onboarding_desc_1">مرحبًا بك في عالم Qurio، حيث تُشعل الأسئلة فضولك وتنتظرك الجوائز الأذكى. هل أنت مستعد لبدء التحدي؟</string>
+
+    <string name="onboarding_title_2">اختر شخصيتك</string>
+    <string name="onboarding_desc_2">لكل بطل أسلوبه الفريد! اختر من بين شخصيات مميزة وابدأ مغامرتك بطريقتك الخاصة.</string>
+
+    <string name="onboarding_title_3">تحدَّ وفُز</string>
+    <string name="onboarding_desc_3">أجب بسرعة، اربح النقاط، وشارك أصدقاءك! كل فئة من الأسئلة تجربة جديدة بانتظارك.</string>
+
+    <string name="onboarding_title_4">اجمعهم جميعًا!</string>
+    <string name="onboarding_desc_4">افتح شخصيات جديدة، احصل على الأوسمة، وتسلق قوائم المتصدرين. Qurio لا يرحم، لكنك بالتأكيد تستطيع التفوق!</string>
     <string name="ic_locked">غير متاح</string>
     <string name="ic_coin">نقود</string>
     <string name="ic_correct">علامة صح</string>

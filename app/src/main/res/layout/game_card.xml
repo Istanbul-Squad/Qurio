@@ -30,7 +30,7 @@
             app:shapeAppearanceOverlay="@style/CustomCardShape"
             app:strokeColor="@color/cardview_light_background"
             app:strokeWidth="3dp"
-            tools:src="@drawable/im_music" />
+            android:src="@drawable/im_music" />
 
         <TextView
             android:id="@+id/gameTitle"

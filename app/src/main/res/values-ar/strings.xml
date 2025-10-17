@@ -83,6 +83,9 @@
     <string name="games">الألعاب</string>
     <string name="last_games">آخر الألعاب</string>
     <string name="all">الكل</string>
+    <string name="ic_locked">غير متاح</string>
+    <string name="ic_coin">نقود</string>
+    <string name="ic_correct">علامة صح</string>
     <string name="back">رجوع</string>
     <string name="coin">عملة</string>
     <string name="check">تحقق</string>

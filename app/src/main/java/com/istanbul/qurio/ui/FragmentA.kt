@@ -24,8 +24,8 @@ class FragmentA : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.goToB.setOnClickListener {
-            val action = FragmentADirections.actionFragmentAToPlayFragment()
-            findNavController().navigate(action)
+            //val action = FragmentADirections.actionFragmentAToPlayFragment()
+            //findNavController().navigate(action)
         }
     }
 

@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/text_number_of_coins"
+        android:id="@+id/text_number_of_lives"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
@@ -38,9 +38,9 @@
         android:contentDescription="@string/coin"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="-4dp"
-        app:layout_constraintTop_toTopOf="@id/text_number_of_coins"
-        app:layout_constraintBottom_toBottomOf="@id/text_number_of_coins"
-        app:layout_constraintEnd_toStartOf="@id/text_number_of_coins" />
+        app:layout_constraintTop_toTopOf="@id/text_number_of_lives"
+        app:layout_constraintBottom_toBottomOf="@id/text_number_of_lives"
+        app:layout_constraintEnd_toStartOf="@id/text_number_of_lives" />
 
     <View
         android:id="@+id/divider_first_half"

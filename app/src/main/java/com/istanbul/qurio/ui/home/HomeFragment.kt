@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.istanbul.qurio.R
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.istanbul.qurio.QurioApplication
+import com.istanbul.qurio.R
 import com.istanbul.qurio.database.QuizDao
 import com.istanbul.qurio.databinding.FragmentHomeBinding
 import com.istanbul.qurio.model.QuizResult
@@ -20,6 +20,8 @@ import com.istanbul.qurio.ui.home.adapter.GameAdapter
 import com.istanbul.qurio.ui.home.adapter.LastGamesAdapter
 import com.istanbul.qurio.ui.home.dialogs.DifficultyDialog
 import com.istanbul.qurio.ui.home.presenter.HomePresenter
+import java.text.DateFormatSymbols
+import java.util.Locale
 import javax.inject.Inject
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate), HomeView {
@@ -33,6 +35,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private lateinit var presenter: HomePresenter
     private lateinit var gameAdapter: GameAdapter
     private lateinit var lastGamesAdapter: LastGamesAdapter
+    private lateinit var streakAdapter: StreakDayAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,22 +59,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun showUserInfo(user: UserEntity) {
         with(binding.tobbBar) {
-            val displayName = if (user.name.isNullOrBlank()) {
-                getString(R.string.rika)
-            } else {
-                user.name
-            }
-
-            val imageUrl = if (user.profileImageUrl.isNullOrBlank()) {
-                null
-            } else {
-                user.profileImageUrl
-            }
-
-            characterName.text = displayName
+            characterName.text = user.name.ifBlank { getString(R.string.rika) }
 
             Glide.with(requireContext())
-                .load(imageUrl)
+                .load(user.profileImageUrl.ifBlank { null })
                 .placeholder(R.drawable.im_food)
                 .error(R.drawable.im_food)
                 .into(characterImage)
@@ -79,28 +70,27 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun showUserStatistics(stats: UserStatisticsEntity) {
-        with(binding.statisticsComponent) {
-            livesCount.text = stats.lives.toString()
-            pointsCount.text = stats.points.toString()
-            trophiesCount.text = stats.trophies.toString()
-        }
+        updateStatisticsComponent(stats)
+        updateStreakComponent(stats)
+    }
 
-        with(binding.streakComponent) {
-            numberOfDay.text = "${stats.streakDays} day streak"
-            description.text = if (stats.streakDays > 0) "KEEP IT UP!" else "Start your streak!"
+    private fun updateStatisticsComponent(stats: UserStatisticsEntity) = with(binding.statisticsComponent) {
+        livesCount.text = stats.lives.toString()
+        pointsCount.text = stats.points.toString()
+        trophiesCount.text = stats.trophies.toString()
+    }
 
-            val days = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
-            val streakList = days.mapIndexed { index, day ->
-                StreakDayUiState(day = day, isSelected = index < stats.streakDays)
-            }.toMutableList()
+    private fun updateStreakComponent(stats: UserStatisticsEntity) = with(binding.streakComponent) {
+        numberOfDay.text = getString(R.string.streak_days_format, stats.streakDays)
+        description.text = getString(if (stats.streakDays > 0) R.string.keep_it_up else R.string.start_your_streak)
 
-            val adapter = StreakDayAdapter(streakList, object : StreakDayInteractionListener {
-                override fun onClickDay(position: Int) {}
-            })
-
-            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            recyclerView.adapter = adapter
-        }
+        val weekdays = DateFormatSymbols(Locale.getDefault()).shortWeekdays
+        val orderedDays = listOf(weekdays[7], weekdays[1], weekdays[2], weekdays[3], weekdays[4], weekdays[5], weekdays[6])
+        streakAdapter.submitList(
+            orderedDays.mapIndexed { index, day ->
+                StreakDayUiState(day, index < stats.streakDays.coerceIn(0, orderedDays.size))
+            }
+        )
     }
 
     private fun setupRecyclerViews() = with(binding) {
@@ -109,13 +99,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
         categoryGameHorizontal.apply {
             adapter = gameAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
 
         lastGamesAdapter = LastGamesAdapter()
         lastGameVertical.apply {
             adapter = lastGamesAdapter
             layoutManager = LinearLayoutManager(requireContext())
+        }
+
+        streakAdapter = StreakDayAdapter(object : StreakDayInteractionListener {
+            override fun onClickDay(position: Int) {
+            }
+        })
+        streakComponent.recyclerView.apply {
+            adapter = streakAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
@@ -142,9 +142,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun showError(message: String) {
-       // lifecycleScope.launch(Dispatchers.Main) {
-          //  Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-       // }
+        // lifecycleScope.launch(Dispatchers.Main) {
+        //  Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        // }
     }
 
     private fun showDifficultyDialog(game: GameCategoryUIModel) {

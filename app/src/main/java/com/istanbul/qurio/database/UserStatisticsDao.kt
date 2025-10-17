@@ -14,7 +14,4 @@ interface UserStatisticsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdate(statistics: UserStatisticsEntity)
-
-    @Query("UPDATE user_statistics SET points = :points, lives = :lives, trophies = :trophies, streakDays = :streakDays WHERE id = :id")
-    suspend fun updateStatistics(id: Int, points: Int, lives: Int, trophies: Int, streakDays: Int)
 }

@@ -137,7 +137,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/coins_owned"
         app:layout_constraintEnd_toEndOf="@+id/corner_shape"
         app:layout_constraintStart_toEndOf="@+id/coins_total"
-        app:layout_constraintTop_toTopOf="@+id/coins_owned" />
+        app:layout_constraintTop_toTopOf="@+id/coins_owned"
+        android:src="@drawable/coinstack" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_buy"

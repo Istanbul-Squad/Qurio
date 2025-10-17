@@ -1,10 +1,12 @@
 package com.istanbul.qurio.repository
 
+import com.istanbul.qurio.database.PlayerDao
 import com.istanbul.qurio.database.QuizDao
 import com.istanbul.qurio.database.UserDao
 import com.istanbul.qurio.database.UserStatisticsDao
 import com.istanbul.qurio.model.Quiz
 import com.istanbul.qurio.model.QuizResult
+import com.istanbul.qurio.model.Player
 import com.istanbul.qurio.service.TriviaService
 import javax.inject.Inject
 import kotlin.collections.map
@@ -14,6 +16,7 @@ import com.istanbul.qurio.model.UserStatisticsEntity
 
 class TriviaRepositoryImpl @Inject constructor(
     private val triviaService: TriviaService,
+    private val playerDao: PlayerDao
     private val quizResultDao: QuizDao,
     private val userStatisticsDao: UserStatisticsDao,
     private val userDao: UserDao
@@ -71,4 +74,34 @@ class TriviaRepositoryImpl @Inject constructor(
     override suspend fun getAllResults(): List<QuizResult> {
         return quizResultDao.getAllResults()
     }
+
+    override suspend fun getPlayer(): Player? {
+      return playerDao.getPlayer()
+    }
+
+    override suspend fun getPlayerOrCreate(): Player {
+        var player = playerDao.getPlayer()
+        if (player == null) {
+            player = Player(coins = 100, lives = 5)
+            playerDao.savePlayer(player)
+        }
+        return player
+    }
+
+    override suspend fun savePlayer(player: Player) {
+        playerDao.savePlayer(player)
+    }
+
+    override suspend fun buyLife() {
+        playerDao.buyLife()
+    }
+
+    override suspend fun loseLife() {
+        playerDao.loseLife()
+    }
+
+    override suspend fun getNumberOfLife(): Int {
+      return playerDao.getNumberOfLife()
+    }
+
 }

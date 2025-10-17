@@ -3,13 +3,18 @@ package com.istanbul.qurio.ui.play
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.text.HtmlCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.istanbul.qurio.QurioApplication
@@ -23,6 +28,7 @@ import com.istanbul.qurio.ui.play.PlayPresenter.Companion.MAX_NUM_OF_QUESTIONS
 import com.istanbul.qurio.ui.play.adapter.AnswerAdapter
 import com.istanbul.qurio.ui.play.adapter.OnAnswerClickListener
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::inflate), PlayView,
@@ -52,6 +58,7 @@ class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infl
         binding.recyclerAnswerOptions.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerAnswerOptions.adapter = answerAdapter
         binding.recyclerAnswerOptions.addItemDecoration(VerticalSpaceItemDecoration(12))
+
         playPresenter.getCoins()
         val args = PlayFragmentArgs.fromBundle(requireArguments())
         val categoryId = args.categoryId
@@ -67,6 +74,10 @@ class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infl
 
     override fun updateCoinsNumber(number: Int) {
         binding.textNumberOfCoins.text = number.toString()
+    }
+
+    override fun updateLivesNumber(number: Int) {
+        binding.textNumberOfLives.text = number.toString()
     }
 
     override fun showQuestion(question: Question, index: Int) {
@@ -195,6 +206,37 @@ class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infl
 
     override fun onAnswerClick(answer: Answer) {
         playPresenter.onAnswerClick(answer)
+    }
+
+     override fun showBuyLifeDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_buy, null)
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show()
+
+        val btnBuy = dialogView.findViewById<Button>(R.id.btn_buy)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btn_cancel)
+        val close = dialogView.findViewById<ImageView>(R.id.close_shape)
+
+        btnBuy.setOnClickListener {
+            viewLifecycleOwner.lifecycleScope.launch {
+                val player = triviaRepository.getPlayerOrCreate()
+                if (player.coins >= 200) {
+                    triviaRepository.buyLife()
+                    Toast.makeText(requireContext(), "Life purchased!", Toast.LENGTH_SHORT).show()
+                    playPresenter.initPlayer()
+                } else {
+                    Toast.makeText(requireContext(), "Not enough coins!", Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialog.dismiss()
+        }
+
+        btnCancel.setOnClickListener { dialog.dismiss() }
+        close.setOnClickListener { dialog.dismiss() }
     }
 
     override fun onDestroyView() {

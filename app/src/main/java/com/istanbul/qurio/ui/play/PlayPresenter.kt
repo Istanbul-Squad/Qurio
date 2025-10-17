@@ -2,6 +2,7 @@ package com.istanbul.qurio.ui.play
 
 import android.util.Log
 import com.istanbul.qurio.model.Answer
+import com.istanbul.qurio.model.Player
 import com.istanbul.qurio.model.Quiz
 import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BasePresenter
@@ -13,6 +14,7 @@ class PlayPresenter @Inject constructor(
     private val triviaRepository: TriviaRepository
 ) : BasePresenter<PlayView>() {
 
+    private var player: Player? = null
     private lateinit var quiz: Quiz
     private var currentQuestion: Int = 1
     private var currentScore: Int = 0
@@ -21,11 +23,16 @@ class PlayPresenter @Inject constructor(
 
     init {
         attachView(playView)
+        initPlayer()
     }
 
-    fun getCoins() {
-        val coins = 5 // TODO: replace with repository logic
-        view?.updateCoinsNumber(coins)
+    fun initPlayer() {
+        coroutineScope.launch {
+            player = triviaRepository.getPlayerOrCreate()
+            player?.let {
+                view?.updateCoinsNumber(it.lives)
+            }
+        }
     }
 
     fun getQuiz(category: Int, difficulty: String) {
@@ -97,7 +104,6 @@ class PlayPresenter @Inject constructor(
     }
 
     private fun checkAnswer(answer: Answer) {
-
         view?.stopTimer()
 
         when {
@@ -108,6 +114,13 @@ class PlayPresenter @Inject constructor(
 
             else -> {
                 view?.markAnswerWrong(answer.copy(choiceStatus = Answer.ChoiceStatus.Chosen))
+                coroutineScope.launch {
+                    triviaRepository.loseLife()
+                    val lives = updateLivesView()
+                    if (lives <= 0) {
+                        view?.showBuyLifeDialog()
+                    }
+                }
             }
         }
 
@@ -117,6 +130,12 @@ class PlayPresenter @Inject constructor(
 
     private fun convertToNextView() {
         view?.convertToNextButton()
+    }
+
+    private suspend fun updateLivesView(): Int {
+        val lives = triviaRepository.getNumberOfLife()
+        view?.updateCoinsNumber(lives)
+        return lives
     }
 
     fun onSkipClick() {

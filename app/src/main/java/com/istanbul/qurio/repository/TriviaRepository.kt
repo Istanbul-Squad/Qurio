@@ -5,6 +5,7 @@ import com.istanbul.qurio.model.Quiz
 import com.istanbul.qurio.model.QuizResult
 import com.istanbul.qurio.model.UserEntity
 import com.istanbul.qurio.model.UserStatisticsEntity
+import com.istanbul.qurio.model.Player
 
 
 interface TriviaRepository {
@@ -26,4 +27,11 @@ interface TriviaRepository {
     suspend fun updateUser(user: UserEntity)
 
     suspend fun getAllResults(): List<QuizResult>
+
+    suspend fun getPlayer(): Player?
+    suspend fun getPlayerOrCreate(): Player
+    suspend fun savePlayer(player: Player)
+    suspend fun buyLife()
+    suspend fun loseLife()
+    suspend fun getNumberOfLife(): Int
 }

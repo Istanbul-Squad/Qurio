@@ -1,5 +1,6 @@
 package com.istanbul.qurio.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import com.istanbul.qurio.ui.base.BaseFragment
 import com.istanbul.qurio.ui.home.adapter.GameAdapter
 import com.istanbul.qurio.ui.home.adapter.LastGamesAdapter
 import com.istanbul.qurio.ui.home.dialogs.DifficultyDialog
+import com.istanbul.qurio.ui.home.dialogs.SettingsDialog
 import com.istanbul.qurio.ui.home.presenter.HomePresenter
 import java.text.DateFormatSymbols
 import java.util.Locale
@@ -127,6 +129,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         allLastGame.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_seeAllLastGamesFragment)
         }
+
+        tobbBar.settingIcon.setOnClickListener {
+            showSettingsDialog()
+        }
     }
 
     override fun showGames(games: List<GameCategoryUIModel>) {
@@ -152,5 +158,43 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             findNavController().navigate(action)
         }
         dialog.show()
+    }
+
+    private fun showSettingsDialog() {
+        val dialog = SettingsDialog(
+            context = requireContext(),
+            onSave = { musicVolume, soundVolume ->
+                saveSettings(musicVolume, soundVolume)
+            },
+            onDiscard = {
+                resetSettingsToDefault()
+            }
+        )
+        dialog.show()
+    }
+
+    private fun saveSettings(musicVolume: Int, soundVolume: Int) {
+        val prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        prefs.edit()
+            .putInt(KEY_MUSIC_VOLUME, musicVolume)
+            .putInt(KEY_SOUND_VOLUME, soundVolume)
+            .apply()
+    }
+
+    private fun resetSettingsToDefault() {
+        val prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        prefs.edit()
+            .putInt(KEY_MUSIC_VOLUME, DEFAULT_MUSIC_VOLUME)
+            .putInt(KEY_SOUND_VOLUME, DEFAULT_SOUND_VOLUME)
+            .apply()
+    }
+
+    companion object {
+        private const val PREFS_NAME = "settings"
+        private const val KEY_MUSIC_VOLUME = "music_volume"
+        private const val KEY_SOUND_VOLUME = "sound_volume"
+
+        const val DEFAULT_MUSIC_VOLUME = 50
+        const val DEFAULT_SOUND_VOLUME = 50
     }
 }

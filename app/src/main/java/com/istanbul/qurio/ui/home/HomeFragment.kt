@@ -161,10 +161,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun showSettingsDialog() {
+        val (musicVolume, soundVolume) = loadSettings()
+
         val dialog = SettingsDialog(
             context = requireContext(),
-            onSave = { musicVolume, soundVolume ->
-                saveSettings(musicVolume, soundVolume)
+            initialMusicVolume = musicVolume,
+            initialSoundVolume = soundVolume,
+            onSave = { newMusic, newSound ->
+                saveSettings(newMusic, newSound)
             },
             onDiscard = {
                 resetSettingsToDefault()
@@ -187,6 +191,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             .putInt(KEY_MUSIC_VOLUME, DEFAULT_MUSIC_VOLUME)
             .putInt(KEY_SOUND_VOLUME, DEFAULT_SOUND_VOLUME)
             .apply()
+    }
+
+    private fun loadSettings(): Pair<Int, Int> {
+        val prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val musicVolume = prefs.getInt(KEY_MUSIC_VOLUME, DEFAULT_MUSIC_VOLUME)
+        val soundVolume = prefs.getInt(KEY_SOUND_VOLUME, DEFAULT_SOUND_VOLUME)
+        return Pair(musicVolume, soundVolume)
     }
 
     companion object {

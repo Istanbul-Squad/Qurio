@@ -8,14 +8,16 @@ import com.istanbul.qurio.databinding.DialogSettingsBinding
 
 class SettingsDialog(
     context: Context,
-    private val onSave: (sound: Int, music: Int) -> Unit,
+    private val initialMusicVolume: Int,
+    private val initialSoundVolume: Int,
+    private val onSave: (Int, Int) -> Unit,
     private val onDiscard: () -> Unit
 ) : Dialog(context) {
 
     private lateinit var binding: DialogSettingsBinding
 
-    private var soundLevel = 50
-    private var musicLevel = 50
+    private var soundLevel = initialSoundVolume
+    private var musicLevel = initialMusicVolume
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -42,6 +42,7 @@ class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infl
 
     private var timerAnimator: ObjectAnimator? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -58,14 +59,24 @@ class PlayFragment : BaseFragment<FragmentPlayBinding>(FragmentPlayBinding::infl
         binding.recyclerAnswerOptions.adapter = answerAdapter
         binding.recyclerAnswerOptions.addItemDecoration(VerticalSpaceItemDecoration(12))
 
+        playPresenter.initPlayer()
+        val args = PlayFragmentArgs.fromBundle(requireArguments())
+        val categoryId = args.categoryId
+        val difficulty = args.difficulty
+
         playPresenter.getQuiz(
-            category = 10, // Entertainment: Books
-            difficulty = "easy"
-        ) // TODO: get from arguments
+            category = categoryId,
+            difficulty = difficulty
+        )
+
         initClickListeners()
     }
 
-    override fun updateCoinsNumber(number: Int) {
+    //override fun updateCoinsNumber(number: Int) {
+        //binding.textNumberOfCoins.text = number.toString()
+    //}
+
+    override fun updateLivesNumber(number: Int) {
         binding.textNumberOfLives.text = number.toString()
     }
 

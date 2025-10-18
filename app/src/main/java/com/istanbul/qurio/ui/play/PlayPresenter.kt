@@ -30,7 +30,7 @@ class PlayPresenter @Inject constructor(
         coroutineScope.launch {
             player = triviaRepository.getPlayerOrCreate()
             player?.let {
-                view?.updateCoinsNumber(it.lives)
+                view?.updateLivesNumber(it.lives)
             }
         }
     }
@@ -134,7 +134,7 @@ class PlayPresenter @Inject constructor(
 
     private suspend fun updateLivesView(): Int {
         val lives = triviaRepository.getNumberOfLife()
-        view?.updateCoinsNumber(lives)
+        view?.updateLivesNumber(lives)
         return lives
     }
 

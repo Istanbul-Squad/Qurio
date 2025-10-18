@@ -1,0 +1,17 @@
+package com.istanbul.qurio.database
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.istanbul.qurio.model.UserStatisticsEntity
+
+@Dao
+interface UserStatisticsDao {
+
+    @Query("SELECT * FROM user_statistics LIMIT 1")
+    suspend fun getUserStatistics(): UserStatisticsEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOrUpdate(statistics: UserStatisticsEntity)
+}

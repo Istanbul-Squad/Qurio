@@ -66,7 +66,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui)
     implementation(libs.kotlinx.serialization.json)
 
-
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.room.compiler)

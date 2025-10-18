@@ -30,17 +30,10 @@
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
-            android:id="@+id/action_onboardingFragment_to_fragmentA"
-            app:destination="@id/fragmentA" />
+            android:id="@+id/action_onboardingFragment_to_fragmentHome"
+            app:destination="@id/homeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/playFragment"
-        android:name="com.istanbul.qurio.ui.play.PlayFragment"
-        android:label="PlayFragment" >
-        <action
-            android:id="@+id/action_playFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.istanbul.qurio.ui.result.ResultFragment"
@@ -56,4 +49,49 @@
             android:name="skippedAnswersCount"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.istanbul.qurio.ui.home.HomeFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_seeAllGamesFragment"
+            app:destination="@id/seeAllGamesFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_seeAllLastGamesFragment"
+            app:destination="@id/seeAllLastGamesFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_playFragment"
+            app:destination="@id/playFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/seeAllGamesFragment"
+        android:name="com.istanbul.qurio.ui.home.SeeAllGamesFragment"
+        android:label="See All Games" />
+
+    <fragment
+        android:id="@+id/seeAllLastGamesFragment"
+        android:name="com.istanbul.qurio.ui.home.SeeAllLastGamesFragment"
+        android:label="See All Last Games" />
+
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.istanbul.qurio.ui.play.PlayFragment"
+        android:label="PlayFragment">
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+        <argument
+            android:name="difficulty"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_playFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
 </navigation>

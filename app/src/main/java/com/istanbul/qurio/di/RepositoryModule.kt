@@ -13,8 +13,4 @@ interface RepositoryModule {
     fun bindTriviaRepository(
         triviaRepositoryImpl: TriviaRepositoryImpl
     ): TriviaRepository
-
-
-
-
 }

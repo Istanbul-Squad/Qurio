@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.istanbul.qurio.QurioApplication
 import com.istanbul.qurio.databinding.FragmentSeeAllGamesBinding
 import com.istanbul.qurio.repository.TriviaRepository
 import com.istanbul.qurio.ui.base.BaseFragment
 import com.istanbul.qurio.ui.home.adapter.GameAdapter
+import com.istanbul.qurio.ui.home.dialogs.DifficultyDialog
 import com.istanbul.qurio.ui.home.presenter.SeeAllGamesPresenter
 
 import javax.inject.Inject
@@ -43,7 +45,7 @@ class SeeAllGamesFragment :
 
     private fun setupRecycler() = with(binding) {
         adapter = GameAdapter { game ->
-            // TODO: navigate to game details later
+            showDifficultyDialog(game)
         }
         recyclerViewGames.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerViewGames.adapter = adapter
@@ -65,5 +67,16 @@ class SeeAllGamesFragment :
 
     override fun showError(message: String) {
         //android.widget.Toast.makeText(requireContext(), message, android.widget.Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showDifficultyDialog(game: GameCategoryUIModel) {
+        val dialog = DifficultyDialog(requireContext()) { selectedDifficulty ->
+            val action = HomeFragmentDirections.actionHomeFragmentToPlayFragment(
+                categoryId = game.id,
+                difficulty = selectedDifficulty
+            )
+            findNavController().navigate(action)
+        }
+        dialog.show()
     }
 }

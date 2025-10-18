@@ -29,7 +29,6 @@ class DatabaseModule{
     }
 
     @Provides
-    @Singleton
     fun providePlayerDao(database: AppDatabase): PlayerDao {
         return database.playerDao()
     }

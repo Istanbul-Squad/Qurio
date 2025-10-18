@@ -16,7 +16,7 @@ import com.istanbul.qurio.model.UserStatisticsEntity
 
 class TriviaRepositoryImpl @Inject constructor(
     private val triviaService: TriviaService,
-    private val playerDao: PlayerDao
+    private val playerDao: PlayerDao,
     private val quizResultDao: QuizDao,
     private val userStatisticsDao: UserStatisticsDao,
     private val userDao: UserDao

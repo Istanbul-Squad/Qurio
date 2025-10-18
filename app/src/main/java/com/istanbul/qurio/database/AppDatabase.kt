@@ -11,14 +11,14 @@ import com.istanbul.qurio.model.Player
     entities = [
         QuizResult::class,
         UserStatisticsEntity::class,
-        UserEntity::class
+        UserEntity::class,
+        Player::class
     ],
-    version = 2,
+    version = 3,
 )
-@Database(entities = [QuizResult::class, Player::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun quizDao(): QuizDao
+    abstract fun playerDao(): PlayerDao
     abstract fun userStatisticsDao(): UserStatisticsDao
     abstract fun userDao(): UserDao
-    abstract fun playerDao(): PlayerDao
 }
